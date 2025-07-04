@@ -104,7 +104,7 @@ const HowItWorksSection = () => {
 
           {/* CTA */}
           <div className="text-center mt-16">
-            <Card className="p-8 bg-gradient-to-r from-primary/20 to-accent/20 border-2 border-primary/30 backdrop-blur-sm">
+            <Card className="p-8 bg-gradient-to-r from-slate-800/95 to-slate-700/95 border-2 border-primary/30 backdrop-blur-sm shadow-xl">
               <h3 className="text-2xl font-bold mb-4 text-white">
                 Pronto para começar?
               </h3>
@@ -112,10 +112,10 @@ const HowItWorksSection = () => {
                 Configure sua primeira integração em menos de 30 minutos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-lg">
                   Iniciar Teste Gratuito
                 </button>
-                <button className="border-2 border-slate-300/50 bg-slate-800/50 text-slate-200 px-8 py-3 rounded-lg font-medium hover:bg-slate-700/70 hover:border-slate-200 hover:text-white transition-all duration-300">
+                <button className="border-2 border-slate-300 bg-slate-100 text-slate-800 px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-slate-900 transition-all duration-300 shadow-lg">
                   Agendar Demonstração
                 </button>
               </div>
