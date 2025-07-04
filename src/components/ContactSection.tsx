@@ -54,26 +54,26 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "E-mail",
-      value: "contato@fastcomm.health",
+      value: "contato@fastcomm.com.br",
       description: "Resposta em até 4 horas"
     },
     {
       icon: Phone,
       title: "Telefone",
-      value: "+55 11 3000-0000",
-      description: "Seg-Sex 8h às 18h"
+      value: "Entre em contato via formulário",
+      description: "Retornamos sua ligação"
     },
     {
       icon: MapPin,
-      title: "Escritório",
+      title: "Matriz",
       value: "São Paulo, SP",
-      description: "Faria Lima, 1000"
+      description: "Centro Empresarial"
     },
     {
       icon: Clock,
-      title: "Suporte",
+      title: "Atendimento",
       value: "24/7",
-      description: "Para clientes Premium"
+      description: "Suporte especializado"
     }
   ];
 

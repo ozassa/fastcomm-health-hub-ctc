@@ -3,18 +3,18 @@ import { Shield, CheckCircle, Award, Zap } from "lucide-react";
 
 const TrustSection = () => {
   const partners = [
-    { name: "Hospital Moinhos de Vento", logo: "MV" },
-    { name: "HCOR", logo: "HC" },
-    { name: "Oswaldo Cruz", logo: "OC" },
-    { name: "Hospital São Francisco", logo: "SF" },
-    { name: "Unimed", logo: "UN" },
-    { name: "IOP", logo: "IO" },
-    { name: "BP Beneficência", logo: "BP" },
-    { name: "Santa Casa", logo: "SC" },
-    { name: "Transduson", logo: "TD" },
-    { name: "ACCG", logo: "AC" },
-    { name: "FSEX", logo: "FS" },
-    { name: "CTR", logo: "CT" }
+    { name: "Hospital Moinhos de Vento", logo: "MV", logoUrl: null },
+    { name: "HCOR", logo: "HC", logoUrl: null },
+    { name: "Oswaldo Cruz", logo: "OC", logoUrl: null },
+    { name: "Hospital São Francisco", logo: "SF", logoUrl: null },
+    { name: "Unimed", logo: "UN", logoUrl: "/src/assets/unimed-logo.png" },
+    { name: "IOP", logo: "IO", logoUrl: null },
+    { name: "BP Beneficência", logo: "BP", logoUrl: null },
+    { name: "Santa Casa", logo: "SC", logoUrl: null },
+    { name: "Transduson", logo: "TD", logoUrl: null },
+    { name: "ACCG", logo: "AC", logoUrl: null },
+    { name: "FSEX", logo: "FS", logoUrl: null },
+    { name: "CTR", logo: "CT", logoUrl: null }
   ];
 
   const certifications = [
@@ -48,16 +48,26 @@ const TrustSection = () => {
           {/* Partners Section */}
           <div className="text-center mb-16">
             <p className="text-muted-foreground mb-8 text-lg">
-              Confiado por mais de <span className="font-semibold text-primary">200+ organizações</span> de saúde
+              Confiado por mais de <span className="font-semibold text-primary">200+ organizações</span> de saúde no Brasil
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {partners.map((partner, index) => (
                 <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 bg-card/50 backdrop-blur-sm">
                   <div className="flex flex-col items-center space-y-2">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center">
-                      <span className="font-bold text-sm text-primary">{partner.logo}</span>
-                    </div>
+                    {partner.logoUrl ? (
+                      <div className="w-12 h-12 flex items-center justify-center">
+                        <img 
+                          src={partner.logoUrl} 
+                          alt={`${partner.name} logo`} 
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center">
+                        <span className="font-bold text-sm text-primary">{partner.logo}</span>
+                      </div>
+                    )}
                     <div className="text-xs text-center text-muted-foreground font-medium">
                       {partner.name}
                     </div>

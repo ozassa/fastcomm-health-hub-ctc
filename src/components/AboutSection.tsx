@@ -50,12 +50,23 @@ const AboutSection = () => {
           
           {/* Header */}
           <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <img 
+                src="/lovable-uploads/18ffcb20-6460-4a77-837b-0648705e26db.png" 
+                alt="Fastcomm Logo" 
+                className="h-10 w-auto"
+              />
+              <span className="text-4xl font-bold">+</span>
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                <span className="font-bold text-primary text-xl">CTC</span>
+              </div>
+            </div>
             <h2 className="text-4xl font-bold mb-4">
               Sobre a <span className="text-primary">CTC</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Pioneiros em interoperabilidade para saúde digital na América Latina, 
-              desenvolvemos o Fastcomm para democratizar integrações complexas.
+              Desenvolvedora do Fastcomm, a CTC é líder brasileira em soluções de TI para saúde, 
+              governo, indústria e setor financeiro, atendendo missões críticas com alta performance.
             </p>
           </div>
 
@@ -67,17 +78,16 @@ const AboutSection = () => {
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Fundada em 2008 por especialistas em sistemas críticos, a CTC nasceu da necessidade 
-                  real de conectar sistemas legados com tecnologias emergentes no setor de saúde.
+                  Fundada por especialistas em sistemas críticos, a CTC desenvolveu expertise única 
+                  em padrões como FHIR, HL7 e TISS ao longo de mais de 15 anos no mercado de saúde.
                 </p>
                 <p>
-                  Ao longo de mais de 15 anos, desenvolvemos expertise única em padrões como FHIR, 
-                  HL7 e TISS, atendendo desde grandes hospitais até startups inovadoras.
+                  Atendemos desde grandes hospitais como HCOR, Oswaldo Cruz e Hospital Moinhos de Vento 
+                  até startups inovadoras, sempre focados em soluções que geram impacto real.
                 </p>
                 <p>
-                  O Fastcomm representa a evolução natural de todo nosso conhecimento acumulado, 
-                  tornando acessível através de uma plataforma low-code o que antes exigia meses 
-                  de desenvolvimento especializado.
+                  O Fastcomm representa a evolução de todo nosso conhecimento, democratizando através 
+                  de uma plataforma low-code o que antes exigia meses de desenvolvimento especializado.
                 </p>
               </div>
             </div>
