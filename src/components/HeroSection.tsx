@@ -80,7 +80,7 @@ const HeroSection = () => {
 
           {/* Right Column - Visual Diagram */}
           <div className="relative">
-            <Card className="p-8 bg-gradient-to-br from-card to-muted/50 border-2 border-muted shadow-2xl">
+            <Card className="p-8 bg-gradient-to-br from-card/95 to-muted/90 border-2 border-primary/20 shadow-2xl shadow-primary/25 backdrop-blur-sm hover:shadow-primary/35 transition-all duration-300 hover:scale-105">
               <div className="space-y-6">
                 <div className="text-center">
                   <h3 className="text-lg font-semibold text-foreground mb-4">
