@@ -24,7 +24,7 @@ const HeroSection = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="flex items-center gap-4 mb-6">
-                <div className="bg-white/90 p-3 rounded-lg shadow-sm">
+                <div className="bg-slate-800/95 p-4 rounded-lg shadow-lg border border-slate-700/50">
                   <img 
                     src="/lovable-uploads/2e2b68d7-64c8-49b8-b7bd-54d6766ac7de.png" 
                     alt="Fastcomm Logo" 
