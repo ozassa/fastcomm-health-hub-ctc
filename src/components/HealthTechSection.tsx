@@ -141,64 +141,65 @@ const HealthTechSection = () => {
                     </p>
                   </div>
 
-                {/* Connection Diagram */}
-                <div className="flex items-center justify-center gap-8">
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-16 h-16 bg-accent/30 rounded-full flex items-center justify-center border border-accent/50">
-                      <Rocket className="w-8 h-8 text-accent" />
+                  {/* Connection Diagram */}
+                  <div className="flex items-center justify-center gap-8">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="w-16 h-16 bg-accent/30 rounded-full flex items-center justify-center border border-accent/50">
+                        <Rocket className="w-8 h-8 text-accent" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-200">Sua Startup</span>
                     </div>
-                    <span className="text-sm font-medium text-slate-200">Sua Startup</span>
-                  </div>
-                  
-                  <ArrowRight className="w-8 h-8 text-accent" />
-                  
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-16 h-16 bg-primary/30 rounded-full flex items-center justify-center border border-primary/50">
-                      <span className="font-bold text-primary">F</span>
+                    
+                    <ArrowRight className="w-8 h-8 text-accent" />
+                    
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="w-16 h-16 bg-primary/30 rounded-full flex items-center justify-center border border-primary/50">
+                        <span className="font-bold text-primary">F</span>
+                      </div>
+                      <span className="text-sm font-medium text-slate-200">Fastcomm</span>
                     </div>
-                    <span className="text-sm font-medium text-slate-200">Fastcomm</span>
-                  </div>
-                  
-                  <ArrowRight className="w-8 h-8 text-accent" />
-                  
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-16 h-16 bg-success/30 rounded-full flex items-center justify-center border border-success/50">
-                      <Users className="w-8 h-8 text-success" />
+                    
+                    <ArrowRight className="w-8 h-8 text-accent" />
+                    
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="w-16 h-16 bg-success/30 rounded-full flex items-center justify-center border border-success/50">
+                        <Users className="w-8 h-8 text-success" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-200">200+ Instituições</span>
                     </div>
-                    <span className="text-sm font-medium text-slate-200">200+ Instituições</span>
                   </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           </div>
-        </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-accent/25 via-primary/25 to-accent/25 blur-2xl rounded-2xl transform scale-105"></div>
-            
-            <Card className="relative p-10 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border-2 border-accent/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 rounded-2xl">
-              <div className="space-y-8">
-                <div className="space-y-4">
-                  <h3 className="text-3xl font-bold text-white leading-tight">
-                    Acelere sua <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">HealthTech</span> Hoje
-                  </h3>
-                  <p className="text-xl text-slate-300 leading-relaxed">
-                    Junte-se ao ecossistema que está transformando a interoperabilidade em saúde no Brasil.
-                  </p>
+          {/* CTA */}
+          <div className="text-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-accent/25 via-primary/25 to-accent/25 blur-2xl rounded-2xl transform scale-105"></div>
+              
+              <Card className="relative p-10 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border-2 border-accent/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 rounded-2xl">
+                <div className="space-y-8">
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold text-white leading-tight">
+                      Acelere sua <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">HealthTech</span> Hoje
+                    </h3>
+                    <p className="text-xl text-slate-300 leading-relaxed">
+                      Junte-se ao ecossistema que está transformando a interoperabilidade em saúde no Brasil.
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                    <button className="bg-gradient-to-r from-accent to-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-accent/90 hover:to-primary/90 hover:scale-110 transition-all duration-300 shadow-xl">
+                      Conectar Minha Startup
+                    </button>
+                    <button className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm">
+                      Ver Documentação
+                    </button>
+                  </div>
                 </div>
-                
-                <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <button className="bg-gradient-to-r from-accent to-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-accent/90 hover:to-primary/90 hover:scale-110 transition-all duration-300 shadow-xl">
-                    Conectar Minha Startup
-                  </button>
-                  <button className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm">
-                    Ver Documentação
-                  </button>
-                </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
