@@ -32,9 +32,9 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                Integre sistemas legados, APIs e healthtechs com suporte nativo aos padrões 
+                Plataforma de integração em nuvem que conecta todo o ecossistema de saúde com suporte nativo aos padrões 
                 <span className="font-semibold text-primary"> FHIR, HL7 e TISS</span>. 
-                Interface low-code para integrações robustas e seguras.
+                Reduza de 6 meses para 3 semanas o tempo de integração.
               </p>
             </div>
 

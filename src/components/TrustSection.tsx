@@ -3,12 +3,18 @@ import { Shield, CheckCircle, Award, Zap } from "lucide-react";
 
 const TrustSection = () => {
   const partners = [
-    { name: "Hospital Albert Einstein", logo: "AE" },
-    { name: "Grupo Hapvida", logo: "HV" },
-    { name: "Telemedicina Brasil", logo: "TB" },
-    { name: "Startup Health", logo: "SH" },
-    { name: "MedTech Solutions", logo: "MS" },
-    { name: "Digital Health Co", logo: "DH" }
+    { name: "Hospital Moinhos de Vento", logo: "MV" },
+    { name: "HCOR", logo: "HC" },
+    { name: "Oswaldo Cruz", logo: "OC" },
+    { name: "Hospital São Francisco", logo: "SF" },
+    { name: "Unimed", logo: "UN" },
+    { name: "IOP", logo: "IO" },
+    { name: "BP Beneficência", logo: "BP" },
+    { name: "Santa Casa", logo: "SC" },
+    { name: "Transduson", logo: "TD" },
+    { name: "ACCG", logo: "AC" },
+    { name: "FSEX", logo: "FS" },
+    { name: "CTR", logo: "CT" }
   ];
 
   const certifications = [
@@ -19,18 +25,18 @@ const TrustSection = () => {
     },
     {
       icon: CheckCircle,
-      title: "LGPD",
-      subtitle: "Compliant"
+      title: "HL7 Brasil",
+      subtitle: "Mantenedor"
     },
     {
       icon: Award,
-      title: "ISO 27001",
-      subtitle: "Security"
+      title: "RNDS",
+      subtitle: "Conector"
     },
     {
       icon: Zap,
-      title: "99.9%",
-      subtitle: "Uptime SLA"
+      title: "Cloud First",
+      subtitle: "AWS + Oracle"
     }
   ];
 
