@@ -56,7 +56,7 @@ const HeroSection = () => {
                 </svg>
               </Button>
               
-              <Button variant="outline" size="xl">
+              <Button variant="hero-outline" size="xl">
                 Ver Documentação
               </Button>
             </div>
