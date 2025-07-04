@@ -44,7 +44,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           
@@ -52,19 +52,19 @@ const AboutSection = () => {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-4">
               <img 
-                src="/lovable-uploads/18ffcb20-6460-4a77-837b-0648705e26db.png" 
+                src="/lovable-uploads/2e2b68d7-64c8-49b8-b7bd-54d6766ac7de.png" 
                 alt="Fastcomm Logo" 
                 className="h-10 w-auto"
               />
-              <span className="text-4xl font-bold">+</span>
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+              <span className="text-4xl font-bold text-slate-400">+</span>
+              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center border border-primary/30">
                 <span className="font-bold text-primary text-xl">CTC</span>
               </div>
             </div>
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4 text-white">
               Sobre a <span className="text-primary">CTC</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
               Desenvolvedora do Fastcomm, a CTC é líder brasileira em soluções de TI para saúde, 
               governo, indústria e setor financeiro, atendendo missões críticas com alta performance.
             </p>
@@ -73,10 +73,10 @@ const AboutSection = () => {
           {/* Company Story */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold">
+              <h3 className="text-3xl font-bold text-white">
                 Nossa <span className="text-accent">História</span>
               </h3>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-slate-300 leading-relaxed">
                 <p>
                   Fundada por especialistas em sistemas críticos, a CTC desenvolveu expertise única 
                   em padrões como FHIR, HL7 e TISS ao longo de mais de 15 anos no mercado de saúde.
@@ -109,25 +109,25 @@ const AboutSection = () => {
           </div>
 
           {/* Values */}
-          <div className="space-y-8">
-            <div className="text-center">
-              <h3 className="text-3xl font-bold mb-4">
-                Nossos <span className="text-primary">Valores</span>
-              </h3>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <div className="space-y-8">
+              <div className="text-center">
+                <h3 className="text-3xl font-bold mb-4 text-white">
+                  Nossos <span className="text-primary">Valores</span>
+                </h3>
+                <p className="text-lg text-slate-300 max-w-2xl mx-auto">
                 Princípios que guiam nossa missão de transformar a interoperabilidade na saúde.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {values.map((value, index) => (
-                <Card key={index} className="p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-card to-primary/5">
+                <Card key={index} className="p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-slate-800/90 to-slate-700/90 border-slate-600/50">
                   <div className="space-y-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary/30 to-accent/30 rounded-xl flex items-center justify-center border border-primary/30">
                       <value.icon className="w-7 h-7 text-primary" />
                     </div>
-                    <h4 className="text-xl font-bold text-foreground">{value.title}</h4>
-                    <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                    <h4 className="text-xl font-bold text-white">{value.title}</h4>
+                    <p className="text-slate-300 leading-relaxed">{value.description}</p>
                   </div>
                 </Card>
               ))}
@@ -136,12 +136,12 @@ const AboutSection = () => {
 
           {/* Team CTA */}
           <div className="mt-16 text-center">
-            <Card className="p-10 bg-gradient-to-r from-accent/10 to-primary/10 border-2 border-accent/20">
+            <Card className="p-10 bg-gradient-to-r from-accent/20 to-primary/20 border-2 border-accent/30 backdrop-blur-sm">
               <div className="max-w-2xl mx-auto space-y-6">
-                <h3 className="text-3xl font-bold">
+                <h3 className="text-3xl font-bold text-white">
                   Conheça Nossa <span className="text-accent">Equipe</span>
                 </h3>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-lg text-slate-300">
                   Especialistas certificados em FHIR, HL7 e arquiteturas de alta disponibilidade, 
                   prontos para apoiar sua jornada de transformação digital.
                 </p>
@@ -149,11 +149,11 @@ const AboutSection = () => {
                 <div className="grid md:grid-cols-2 gap-6 mt-8">
                   <div className="space-y-2">
                     <div className="text-2xl font-bold text-primary">PhDs e Mestres</div>
-                    <div className="text-sm text-muted-foreground">em Engenharia de Software e Informática Médica</div>
+                    <div className="text-sm text-slate-400">em Engenharia de Software e Informática Médica</div>
                   </div>
                   <div className="space-y-2">
                     <div className="text-2xl font-bold text-accent">Certificações</div>
-                    <div className="text-sm text-muted-foreground">FHIR, HL7, AWS, Azure e Google Cloud</div>
+                    <div className="text-sm text-slate-400">FHIR, HL7, AWS, Azure e Google Cloud</div>
                   </div>
                 </div>
 
@@ -161,7 +161,7 @@ const AboutSection = () => {
                   <button className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors">
                     Conheça o Time
                   </button>
-                  <button className="border border-input bg-background px-8 py-3 rounded-lg font-medium hover:bg-muted hover:text-foreground transition-colors">
+                  <button className="border-2 border-slate-300/50 bg-slate-800/50 text-slate-200 px-8 py-3 rounded-lg font-medium hover:bg-slate-700/70 hover:border-slate-200 hover:text-white transition-all duration-300">
                     Trabalhe Conosco
                   </button>
                 </div>

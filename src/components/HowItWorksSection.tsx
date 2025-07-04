@@ -34,16 +34,16 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4 text-white">
               Como o <span className="text-primary">Fastcomm</span> Funciona
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
               Processo simplificado em 4 etapas para integrar qualquer sistema de saúde 
               com padrões de interoperabilidade modernos.
             </p>
@@ -53,7 +53,7 @@ const HowItWorksSection = () => {
           <div className="space-y-8">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <Card className="p-8 hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-card to-muted/30">
+                <Card className="p-8 hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-slate-800/90 to-slate-700/90 border-slate-600/50 backdrop-blur-sm">
                   <div className="grid lg:grid-cols-3 gap-8 items-center">
                     
                     {/* Step Info */}
@@ -66,24 +66,24 @@ const HowItWorksSection = () => {
                           <div className="text-sm font-medium text-accent mb-1">
                             Etapa {step.number}
                           </div>
-                          <h3 className="text-2xl font-bold text-foreground">
+                          <h3 className="text-2xl font-bold text-white">
                             {step.title}
                           </h3>
                         </div>
                       </div>
                       
-                      <p className="text-lg text-muted-foreground leading-relaxed">
+                      <p className="text-lg text-slate-300 leading-relaxed">
                         {step.description}
                       </p>
                     </div>
 
                     {/* Features */}
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-foreground mb-4">Recursos:</h4>
+                      <h4 className="font-semibold text-white mb-4">Recursos:</h4>
                       {step.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-accent rounded-full"></div>
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                          <span className="text-sm text-slate-400">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -104,18 +104,18 @@ const HowItWorksSection = () => {
 
           {/* CTA */}
           <div className="text-center mt-16">
-            <Card className="p-8 bg-gradient-to-r from-primary/5 to-accent/5 border-2 border-primary/20">
-              <h3 className="text-2xl font-bold mb-4">
+            <Card className="p-8 bg-gradient-to-r from-primary/20 to-accent/20 border-2 border-primary/30 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-4 text-white">
                 Pronto para começar?
               </h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-slate-300 mb-6">
                 Configure sua primeira integração em menos de 30 minutos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
                   Iniciar Teste Gratuito
                 </button>
-                <button className="border border-input bg-background px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
+                <button className="border-2 border-slate-300/50 bg-slate-800/50 text-slate-200 px-8 py-3 rounded-lg font-medium hover:bg-slate-700/70 hover:border-slate-200 hover:text-white transition-all duration-300">
                   Agendar Demonstração
                 </button>
               </div>
