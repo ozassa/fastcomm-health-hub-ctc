@@ -23,6 +23,13 @@ const HeroSection = () => {
           {/* Left Column - Text Content */}
           <div className="space-y-8">
             <div className="space-y-4">
+              <div className="flex items-center gap-4 mb-6">
+                <img 
+                  src="/lovable-uploads/18ffcb20-6460-4a77-837b-0648705e26db.png" 
+                  alt="Fastcomm Logo" 
+                  className="h-12 w-auto"
+                />
+              </div>
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
                 Interoperabilidade
                 <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
