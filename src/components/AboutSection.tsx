@@ -136,37 +136,43 @@ const AboutSection = () => {
 
           {/* Team CTA */}
           <div className="mt-16 text-center">
-            <Card className="p-10 bg-gradient-to-r from-accent/20 to-primary/20 border-2 border-accent/30 backdrop-blur-sm">
-              <div className="max-w-2xl mx-auto space-y-6">
-                <h3 className="text-3xl font-bold text-white">
-                  Conheça Nossa <span className="text-accent">Equipe</span>
-                </h3>
-                <p className="text-lg text-slate-300">
-                  Especialistas certificados em FHIR, HL7 e arquiteturas de alta disponibilidade, 
-                  prontos para apoiar sua jornada de transformação digital.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-6 mt-8">
-                  <div className="space-y-2">
-                    <div className="text-2xl font-bold text-primary">PhDs e Mestres</div>
-                    <div className="text-sm text-slate-300">em Engenharia de Software e Informática Médica</div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-2xl rounded-3xl transform scale-105"></div>
+              
+              <Card className="relative p-12 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border-2 border-primary/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 rounded-2xl">
+                <div className="max-w-2xl mx-auto space-y-8">
+                  <div>
+                    <h3 className="text-4xl font-bold text-white leading-tight">
+                      Conheça Nossa <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Equipe</span>
+                    </h3>
+                    <p className="text-xl text-slate-300 leading-relaxed">
+                      Especialistas certificados em FHIR, HL7 e arquiteturas de alta disponibilidade, 
+                      prontos para apoiar sua jornada de transformação digital.
+                    </p>
                   </div>
-                  <div className="space-y-2">
-                    <div className="text-2xl font-bold text-accent">Certificações</div>
-                    <div className="text-sm text-slate-300">FHIR, HL7, AWS, Azure e Google Cloud</div>
+                  
+                  <div className="grid md:grid-cols-2 gap-8 mt-8">
+                    <div className="space-y-3">
+                      <div className="text-3xl font-bold text-primary">PhDs e Mestres</div>
+                      <div className="text-base text-slate-300">em Engenharia de Software e Informática Médica</div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="text-3xl font-bold text-accent">Certificações</div>
+                      <div className="text-base text-slate-300">FHIR, HL7, AWS, Azure e Google Cloud</div>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-                  <button className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors">
-                    Conheça o Time
-                  </button>
-                  <button className="border-2 border-slate-300/50 bg-slate-800/50 text-slate-200 px-8 py-3 rounded-lg font-medium hover:bg-slate-700/70 hover:border-slate-200 hover:text-white transition-all duration-300">
-                    Trabalhe Conosco
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-6 justify-center pt-6">
+                    <button className="bg-gradient-to-r from-accent to-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-accent/90 hover:to-primary/90 hover:scale-110 transition-all duration-300 shadow-xl">
+                      Conheça o Time
+                    </button>
+                    <button className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm">
+                      Trabalhe Conosco
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
