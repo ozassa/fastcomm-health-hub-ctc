@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Shield, Database, Code, Lock } from "lucide-react";
+import { Shield, Database, Code, Lock, Smartphone, Brain } from "lucide-react";
 import heroBackground from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
@@ -89,42 +89,125 @@ const HeroSection = () => {
                 </div>
                 
                 {/* Integration Flow */}
-                  <div className="space-y-4">
-                  <div className="flex items-center gap-4 p-4 bg-white/95 rounded-lg border shadow-sm">
-                    <div className="w-10 h-10 bg-primary/15 rounded-full flex items-center justify-center">
-                      <Database className="w-5 h-5 text-primary" />
+                <div className="space-y-6">
+                  {/* Múltiplas Fontes de Entrada */}
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="flex flex-col items-center gap-2 p-3 bg-slate-100 rounded-lg border">
+                      <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center">
+                        <Database className="w-4 h-4 text-blue-600" />
+                      </div>
+                      <div className="text-xs text-center text-slate-700">
+                        <div className="font-medium">Hospitais</div>
+                        <div className="text-slate-500">HIS/RIS</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-medium text-slate-800">Sistema Legado</div>
-                      <div className="text-sm text-slate-600">Hospital/Clínica</div>
+                    
+                    <div className="flex flex-col items-center gap-2 p-3 bg-slate-100 rounded-lg border">
+                      <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
+                        <Database className="w-4 h-4 text-green-600" />
+                      </div>
+                      <div className="text-xs text-center text-slate-700">
+                        <div className="font-medium">Clínicas</div>
+                        <div className="text-slate-500">Prontuários</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col items-center gap-2 p-3 bg-slate-100 rounded-lg border">
+                      <div className="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center">
+                        <Database className="w-4 h-4 text-purple-600" />
+                      </div>
+                      <div className="text-xs text-center text-slate-700">
+                        <div className="font-medium">Laboratórios</div>
+                        <div className="text-slate-500">LIS/LIMS</div>
+                      </div>
                     </div>
                   </div>
                   
+                  {/* Linhas de Conexão */}
                   <div className="flex justify-center">
-                    <div className="w-px h-8 bg-gradient-to-b from-primary to-accent"></div>
-                  </div>
-                  
-                  <div className="flex items-center gap-4 p-4 bg-accent/15 rounded-lg border border-accent/30 shadow-sm">
-                    <div className="w-10 h-10 bg-accent/25 rounded-full flex items-center justify-center">
-                      <Code className="w-5 h-5 text-accent" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-slate-800">Fastcomm Engine</div>
-                      <div className="text-sm text-slate-600">Transformação FHIR</div>
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-px h-4 bg-gradient-to-b from-slate-400 to-accent"></div>
+                      <div className="text-xs text-slate-500">múltiplos formatos</div>
+                      <div className="w-px h-4 bg-gradient-to-b from-accent to-slate-400"></div>
                     </div>
                   </div>
                   
+                  {/* Fastcomm Engine - Hub Central */}
                   <div className="flex justify-center">
-                    <div className="w-px h-8 bg-gradient-to-b from-accent to-primary"></div>
+                    <div className="p-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-xl border-2 border-accent/30 shadow-lg">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 bg-accent/30 rounded-xl flex items-center justify-center">
+                          <Code className="w-6 h-6 text-accent" />
+                        </div>
+                        <div>
+                          <div className="font-bold text-slate-800">Fastcomm Engine</div>
+                          <div className="text-xs text-slate-600">Transformação & Normalização</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   
-                  <div className="flex items-center gap-4 p-4 bg-white/95 rounded-lg border shadow-sm">
-                    <div className="w-10 h-10 bg-primary/15 rounded-full flex items-center justify-center">
-                      <Shield className="w-5 h-5 text-primary" />
+                  {/* Linhas de Saída */}
+                  <div className="flex justify-center">
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-px h-4 bg-gradient-to-b from-accent to-primary"></div>
+                      <div className="text-xs text-slate-500">padrões padronizados</div>
+                      <div className="w-px h-4 bg-gradient-to-b from-primary to-slate-400"></div>
                     </div>
-                    <div>
-                      <div className="font-medium text-slate-800">API Padronizada</div>
-                      <div className="text-sm text-slate-600">Healthtech/App</div>
+                  </div>
+                  
+                  {/* Padrões de Saída */}
+                  <div className="grid grid-cols-3 gap-2">
+                    <div className="flex flex-col items-center gap-1 p-2 bg-primary/10 rounded-lg border border-primary/20">
+                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center">
+                        <Shield className="w-3 h-3 text-primary" />
+                      </div>
+                      <div className="text-xs font-medium text-slate-700">FHIR R4</div>
+                    </div>
+                    
+                    <div className="flex flex-col items-center gap-1 p-2 bg-green-500/10 rounded-lg border border-green-500/20">
+                      <div className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
+                        <Database className="w-3 h-3 text-green-600" />
+                      </div>
+                      <div className="text-xs font-medium text-slate-700">HL7 v2/v3</div>
+                    </div>
+                    
+                    <div className="flex flex-col items-center gap-1 p-2 bg-orange-500/10 rounded-lg border border-orange-500/20">
+                      <div className="w-6 h-6 bg-orange-500/20 rounded-full flex items-center justify-center">
+                        <Database className="w-3 h-3 text-orange-600" />
+                      </div>
+                      <div className="text-xs font-medium text-slate-700">TISS 4.0</div>
+                    </div>
+                  </div>
+                  
+                  {/* Destinos Finais */}
+                  <div className="flex justify-center">
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-px h-4 bg-gradient-to-b from-slate-400 to-primary"></div>
+                      <div className="text-xs text-slate-500">APIs padronizadas</div>
+                      <div className="w-px h-4 bg-gradient-to-b from-primary to-slate-400"></div>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="flex flex-col items-center gap-2 p-3 bg-slate-100 rounded-lg border">
+                      <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                        <Smartphone className="w-4 h-4 text-primary" />
+                      </div>
+                      <div className="text-xs text-center text-slate-700">
+                        <div className="font-medium">Healthtechs</div>
+                        <div className="text-slate-500">Apps/Sistemas</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col items-center gap-2 p-3 bg-slate-100 rounded-lg border">
+                      <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                        <Brain className="w-4 h-4 text-accent" />
+                      </div>
+                      <div className="text-xs text-center text-slate-700">
+                        <div className="font-medium">IA/Analytics</div>
+                        <div className="text-slate-500">Algoritmos</div>
+                      </div>
                     </div>
                   </div>
                 </div>
