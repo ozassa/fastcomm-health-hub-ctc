@@ -117,10 +117,10 @@ const UseCasesSection = () => {
 
                   {/* Examples */}
                   <div className="space-y-3">
-                    <h4 className="text-sm font-semibold text-white">Principais aplicações:</h4>
+                    <h4 className="text-sm font-semibold text-slate-200">Principais aplicações:</h4>
                     <ul className="space-y-2">
                       {useCase.examples.map((example, exampleIndex) => (
-                        <li key={exampleIndex} className="flex items-start gap-2 text-sm text-slate-400">
+                        <li key={exampleIndex} className="flex items-start gap-2 text-sm text-slate-300">
                           <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                           <span>{example}</span>
                         </li>
@@ -152,15 +152,15 @@ const UseCasesSection = () => {
                 <div className="grid md:grid-cols-3 gap-8 mt-8">
                   <div className="space-y-2">
                     <div className="text-3xl font-bold text-primary">200+</div>
-                    <div className="text-sm text-slate-400">Organizações conectadas</div>
+                    <div className="text-sm text-slate-300">Organizações conectadas</div>
                   </div>
                   <div className="space-y-2">
                     <div className="text-3xl font-bold text-accent">50M+</div>
-                    <div className="text-sm text-slate-400">Registros processados/mês</div>
+                    <div className="text-sm text-slate-300">Registros processados/mês</div>
                   </div>
                   <div className="space-y-2">
                     <div className="text-3xl font-bold text-success">99.9%</div>
-                    <div className="text-sm text-slate-400">Disponibilidade média</div>
+                    <div className="text-sm text-slate-300">Disponibilidade média</div>
                   </div>
                 </div>
 

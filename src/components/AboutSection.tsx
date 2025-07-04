@@ -56,7 +56,7 @@ const AboutSection = () => {
                 alt="Fastcomm Logo" 
                 className="h-10 w-auto"
               />
-              <span className="text-4xl font-bold text-slate-400">+</span>
+              <span className="text-4xl font-bold text-slate-300">+</span>
               <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center border border-primary/30">
                 <span className="font-bold text-primary text-xl">CTC</span>
               </div>
@@ -95,13 +95,13 @@ const AboutSection = () => {
             {/* Achievements */}
             <div className="grid grid-cols-2 gap-6">
               {achievements.map((achievement, index) => (
-                <Card key={index} className="p-6 text-center hover:shadow-lg transition-all duration-300 hover:scale-105 bg-gradient-to-br from-card to-accent/5">
+                <Card key={index} className="p-6 text-center hover:shadow-lg transition-all duration-300 hover:scale-105 bg-gradient-to-br from-slate-800/90 to-slate-700/90 border-slate-600/50">
                   <div className="space-y-3">
-                    <div className="w-12 h-12 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 mx-auto bg-primary/20 rounded-full flex items-center justify-center border border-primary/30">
                       <achievement.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <div className="font-bold text-lg text-foreground">{achievement.title}</div>
-                    <div className="text-sm text-muted-foreground">{achievement.description}</div>
+                    <div className="font-bold text-lg text-white">{achievement.title}</div>
+                    <div className="text-sm text-slate-300">{achievement.description}</div>
                   </div>
                 </Card>
               ))}
@@ -149,11 +149,11 @@ const AboutSection = () => {
                 <div className="grid md:grid-cols-2 gap-6 mt-8">
                   <div className="space-y-2">
                     <div className="text-2xl font-bold text-primary">PhDs e Mestres</div>
-                    <div className="text-sm text-slate-400">em Engenharia de Software e Informática Médica</div>
+                    <div className="text-sm text-slate-300">em Engenharia de Software e Informática Médica</div>
                   </div>
                   <div className="space-y-2">
                     <div className="text-2xl font-bold text-accent">Certificações</div>
-                    <div className="text-sm text-slate-400">FHIR, HL7, AWS, Azure e Google Cloud</div>
+                    <div className="text-sm text-slate-300">FHIR, HL7, AWS, Azure e Google Cloud</div>
                   </div>
                 </div>
 

@@ -63,15 +63,15 @@ const HeroSection = () => {
 
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-slate-700">
-              <div className="flex items-center gap-2 text-sm text-slate-400">
+              <div className="flex items-center gap-2 text-sm text-slate-300">
                 <Shield className="w-4 h-4 text-success" />
                 Compliance FHIR R4
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-400">
+              <div className="flex items-center gap-2 text-sm text-slate-300">
                 <Lock className="w-4 h-4 text-success" />
                 LGPD Compliant
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-400">
+              <div className="flex items-center gap-2 text-sm text-slate-300">
                 <Database className="w-4 h-4 text-success" />
                 99.9% Uptime SLA
               </div>
@@ -96,7 +96,7 @@ const HeroSection = () => {
                     </div>
                     <div>
                       <div className="font-medium">Sistema Legado</div>
-                      <div className="text-sm text-muted-foreground">Hospital/Clínica</div>
+                      <div className="text-sm text-slate-200">Hospital/Clínica</div>
                     </div>
                   </div>
                   
@@ -110,7 +110,7 @@ const HeroSection = () => {
                     </div>
                     <div>
                       <div className="font-medium">Fastcomm Engine</div>
-                      <div className="text-sm text-muted-foreground">Transformação FHIR</div>
+                      <div className="text-sm text-slate-200">Transformação FHIR</div>
                     </div>
                   </div>
                   
@@ -124,7 +124,7 @@ const HeroSection = () => {
                     </div>
                     <div>
                       <div className="font-medium">API Padronizada</div>
-                      <div className="text-sm text-muted-foreground">Healthtech/App</div>
+                      <div className="text-sm text-slate-200">Healthtech/App</div>
                     </div>
                   </div>
                 </div>

@@ -79,11 +79,11 @@ const HowItWorksSection = () => {
 
                     {/* Features */}
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-white mb-4">Recursos:</h4>
+                      <h4 className="font-semibold text-slate-200 mb-4">Recursos:</h4>
                       {step.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-accent rounded-full"></div>
-                          <span className="text-sm text-slate-400">{feature}</span>
+                          <span className="text-sm text-slate-300">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -108,7 +108,7 @@ const HowItWorksSection = () => {
               <h3 className="text-2xl font-bold mb-4 text-white">
                 Pronto para começar?
               </h3>
-              <p className="text-slate-300 mb-6">
+              <p className="text-slate-200 mb-6">
                 Configure sua primeira integração em menos de 30 minutos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
