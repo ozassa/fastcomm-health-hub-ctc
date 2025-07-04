@@ -151,7 +151,7 @@ const HeroSection = () => {
                   <div className="flex justify-center">
                     <div className="flex flex-col items-center gap-1">
                       <div className="w-px h-4 bg-gradient-to-b from-accent to-primary"></div>
-                      <div className="text-xs text-slate-500">padrões padronizados</div>
+                      <div className="text-xs text-slate-500">formatos padrão</div>
                       <div className="w-px h-4 bg-gradient-to-b from-primary to-slate-400"></div>
                     </div>
                   </div>
