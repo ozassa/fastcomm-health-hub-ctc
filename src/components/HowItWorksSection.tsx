@@ -106,30 +106,30 @@ const HowItWorksSection = () => {
           <div className="text-center mt-20">
             <div className="relative">
               {/* Glow effect background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-3xl rounded-3xl transform scale-110"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 blur-3xl rounded-3xl transform scale-110"></div>
               
-              <Card className="relative p-12 bg-gradient-to-br from-primary/95 via-primary to-accent/90 border-2 border-primary-foreground/20 backdrop-blur-sm shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 rounded-2xl">
+              <Card className="relative p-12 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border-2 border-primary/50 backdrop-blur-sm shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 rounded-2xl">
                 <div className="max-w-2xl mx-auto space-y-8">
                   <div className="space-y-4">
                     <h3 className="text-4xl font-bold text-white leading-tight">
-                      Pronto para <span className="text-primary-foreground">Revolucionar</span> suas Integrações?
+                      Pronto para <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Revolucionar</span> suas Integrações?
                     </h3>
-                    <p className="text-xl text-primary-foreground/90 leading-relaxed">
+                    <p className="text-xl text-slate-300 leading-relaxed">
                       Configure sua primeira integração em menos de 30 minutos e experimente o poder da interoperabilidade moderna.
                     </p>
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <button className="bg-white text-primary px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary-foreground hover:scale-110 transition-all duration-300 shadow-xl hover:shadow-2xl">
+                    <button className="bg-gradient-to-r from-primary to-accent text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-primary/90 hover:to-accent/90 hover:scale-110 transition-all duration-300 shadow-xl hover:shadow-2xl">
                       🚀 Iniciar Teste Gratuito
                     </button>
-                    <button className="border-3 border-primary-foreground/50 bg-primary-foreground/10 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary-foreground/20 hover:border-primary-foreground hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm">
+                    <button className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm">
                       📅 Agendar Demonstração
                     </button>
                   </div>
                   
-                  <div className="pt-4 border-t border-primary-foreground/20">
-                    <p className="text-sm text-primary-foreground/70">
+                  <div className="pt-4 border-t border-slate-600/50">
+                    <p className="text-sm text-slate-400">
                       ✨ Sem compromisso • Setup gratuito • Suporte especializado
                     </p>
                   </div>
