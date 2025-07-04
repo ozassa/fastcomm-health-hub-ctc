@@ -126,17 +126,20 @@ const HealthTechSection = () => {
 
           {/* Ecosystem Visual */}
           <div className="text-center mb-16">
-            <Card className="p-12 bg-gradient-to-r from-accent/20 to-primary/20 border-2 border-accent/30 backdrop-blur-sm">
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-3xl font-bold mb-4 text-white">
-                    <span className="text-accent">Diversas Possibilidades</span>, Uma Conexão
-                  </h3>
-                  <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-                    Integre-se ao Fastcomm e você estará conectado com os mais diversos 
-                    sistemas heterogêneos do mercado, reduzindo custo e tempo das suas integrações.
-                  </p>
-                </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-2xl rounded-3xl transform scale-105"></div>
+              
+              <Card className="relative p-12 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border-2 border-primary/40 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 rounded-2xl">
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-4xl font-bold mb-6 text-white leading-tight">
+                      <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Diversas Possibilidades</span>, Uma Conexão
+                    </h3>
+                    <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                      Integre-se ao Fastcomm e você estará conectado com os mais diversos 
+                      sistemas heterogêneos do mercado, reduzindo custo e tempo das suas integrações.
+                    </p>
+                  </div>
 
                 {/* Connection Diagram */}
                 <div className="flex items-center justify-center gap-8">
@@ -168,23 +171,32 @@ const HealthTechSection = () => {
               </div>
             </Card>
           </div>
+        </div>
 
-          {/* CTA */}
-          <div className="text-center">
-            <Card className="p-8 bg-gradient-to-r from-accent/20 to-primary/20 border-2 border-accent/30 backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-4 text-white">
-                Acelere sua Health Tech Hoje
-              </h3>
-              <p className="text-slate-300 mb-6">
-                Junte-se ao ecossistema que está transformando a interoperabilidade em saúde no Brasil.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors">
-                  Conectar Minha Startup
-                </button>
-                <button className="border-2 border-slate-300/50 bg-slate-800/50 text-slate-200 px-8 py-3 rounded-lg font-medium hover:bg-slate-700/70 hover:border-slate-200 hover:text-white transition-all duration-300">
-                  Ver Documentação
-                </button>
+        {/* CTA */}
+        <div className="text-center">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/25 via-primary/25 to-accent/25 blur-2xl rounded-2xl transform scale-105"></div>
+            
+            <Card className="relative p-10 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border-2 border-accent/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 rounded-2xl">
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <h3 className="text-3xl font-bold text-white leading-tight">
+                    Acelere sua <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">HealthTech</span> Hoje
+                  </h3>
+                  <p className="text-xl text-slate-300 leading-relaxed">
+                    Junte-se ao ecossistema que está transformando a interoperabilidade em saúde no Brasil.
+                  </p>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                  <button className="bg-gradient-to-r from-accent to-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-accent/90 hover:to-primary/90 hover:scale-110 transition-all duration-300 shadow-xl">
+                    Conectar Minha Startup
+                  </button>
+                  <button className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm">
+                    Ver Documentação
+                  </button>
+                </div>
               </div>
             </Card>
           </div>

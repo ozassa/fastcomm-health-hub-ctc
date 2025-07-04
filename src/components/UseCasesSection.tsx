@@ -142,38 +142,45 @@ const UseCasesSection = () => {
           </div>
 
           {/* Success Stories */}
+          {/* Cases de Sucesso */}
           <div className="mt-16">
-            <Card className="p-10 bg-gradient-to-r from-accent/20 to-primary/20 border-2 border-accent/30 backdrop-blur-sm">
-              <div className="text-center space-y-6">
-                <h3 className="text-3xl font-bold text-white">
-                  Casos de <span className="text-accent">Sucesso</span>
-                </h3>
-                
-                <div className="grid md:grid-cols-3 gap-8 mt-8">
-                  <div className="space-y-2">
-                    <div className="text-3xl font-bold text-primary">200+</div>
-                    <div className="text-sm text-slate-300">Organizações conectadas</div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-2xl rounded-3xl transform scale-105"></div>
+              
+              <Card className="relative p-12 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border-2 border-accent/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 rounded-2xl">
+                <div className="text-center space-y-8">
+                  <div>
+                    <h3 className="text-4xl font-bold text-white leading-tight">
+                      Casos de <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Sucesso</span>
+                    </h3>
                   </div>
-                  <div className="space-y-2">
-                    <div className="text-3xl font-bold text-accent">50M+</div>
-                    <div className="text-sm text-slate-300">Registros processados/mês</div>
+                  
+                  <div className="grid md:grid-cols-3 gap-8 mt-8">
+                    <div className="space-y-2">
+                      <div className="text-4xl font-bold text-primary">200+</div>
+                      <div className="text-base text-slate-300">Organizações conectadas</div>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="text-4xl font-bold text-accent">50M+</div>
+                      <div className="text-base text-slate-300">Registros processados/mês</div>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="text-4xl font-bold text-success">99.9%</div>
+                      <div className="text-base text-slate-300">Disponibilidade média</div>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <div className="text-3xl font-bold text-success">99.9%</div>
-                    <div className="text-sm text-slate-300">Disponibilidade média</div>
-                  </div>
-                </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-                  <button className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors">
-                    Ver Estudos de Caso
-                  </button>
-                  <button className="border-2 border-slate-300/50 bg-slate-800/50 text-slate-200 px-8 py-3 rounded-lg font-medium hover:bg-slate-700/70 hover:border-slate-200 hover:text-white transition-all duration-300">
-                    Calcular ROI
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-6 justify-center pt-6">
+                    <button className="bg-gradient-to-r from-accent to-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-accent/90 hover:to-primary/90 hover:scale-110 transition-all duration-300 shadow-xl">
+                      Ver Estudos de Caso
+                    </button>
+                    <button className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm">
+                      Calcular ROI
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
