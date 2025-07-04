@@ -102,24 +102,40 @@ const HowItWorksSection = () => {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="text-center mt-16">
-            <Card className="p-8 bg-gradient-to-r from-slate-800/95 to-slate-700/95 border-2 border-primary/30 backdrop-blur-sm shadow-xl">
-              <h3 className="text-2xl font-bold mb-4 text-white">
-                Pronto para começar?
-              </h3>
-              <p className="text-slate-200 mb-6">
-                Configure sua primeira integração em menos de 30 minutos.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-lg">
-                  Iniciar Teste Gratuito
-                </button>
-                <button className="border-2 border-slate-300 bg-slate-100 text-slate-800 px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-slate-900 transition-all duration-300 shadow-lg">
-                  Agendar Demonstração
-                </button>
-              </div>
-            </Card>
+          {/* CTA - Destacado */}
+          <div className="text-center mt-20">
+            <div className="relative">
+              {/* Glow effect background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-3xl rounded-3xl transform scale-110"></div>
+              
+              <Card className="relative p-12 bg-gradient-to-br from-primary/95 via-primary to-accent/90 border-2 border-primary-foreground/20 backdrop-blur-sm shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 rounded-2xl">
+                <div className="max-w-2xl mx-auto space-y-8">
+                  <div className="space-y-4">
+                    <h3 className="text-4xl font-bold text-white leading-tight">
+                      Pronto para <span className="text-primary-foreground">Revolucionar</span> suas Integrações?
+                    </h3>
+                    <p className="text-xl text-primary-foreground/90 leading-relaxed">
+                      Configure sua primeira integração em menos de 30 minutos e experimente o poder da interoperabilidade moderna.
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <button className="bg-white text-primary px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary-foreground hover:scale-110 transition-all duration-300 shadow-xl hover:shadow-2xl">
+                      🚀 Iniciar Teste Gratuito
+                    </button>
+                    <button className="border-3 border-primary-foreground/50 bg-primary-foreground/10 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary-foreground/20 hover:border-primary-foreground hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm">
+                      📅 Agendar Demonstração
+                    </button>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-primary-foreground/20">
+                    <p className="text-sm text-primary-foreground/70">
+                      ✨ Sem compromisso • Setup gratuito • Suporte especializado
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
