@@ -89,14 +89,14 @@ const HeroSection = () => {
                 </div>
                 
                 {/* Integration Flow */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4 p-4 bg-background/70 rounded-lg border">
-                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                  <div className="space-y-4">
+                  <div className="flex items-center gap-4 p-4 bg-white/95 rounded-lg border shadow-sm">
+                    <div className="w-10 h-10 bg-primary/15 rounded-full flex items-center justify-center">
                       <Database className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <div className="font-medium">Sistema Legado</div>
-                      <div className="text-sm text-slate-200">Hospital/Clínica</div>
+                      <div className="font-medium text-slate-800">Sistema Legado</div>
+                      <div className="text-sm text-slate-600">Hospital/Clínica</div>
                     </div>
                   </div>
                   
@@ -104,13 +104,13 @@ const HeroSection = () => {
                     <div className="w-px h-8 bg-gradient-to-b from-primary to-accent"></div>
                   </div>
                   
-                  <div className="flex items-center gap-4 p-4 bg-accent/10 rounded-lg border border-accent/20">
-                    <div className="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center">
+                  <div className="flex items-center gap-4 p-4 bg-accent/15 rounded-lg border border-accent/30 shadow-sm">
+                    <div className="w-10 h-10 bg-accent/25 rounded-full flex items-center justify-center">
                       <Code className="w-5 h-5 text-accent" />
                     </div>
                     <div>
-                      <div className="font-medium">Fastcomm Engine</div>
-                      <div className="text-sm text-slate-200">Transformação FHIR</div>
+                      <div className="font-medium text-slate-800">Fastcomm Engine</div>
+                      <div className="text-sm text-slate-600">Transformação FHIR</div>
                     </div>
                   </div>
                   
@@ -118,13 +118,13 @@ const HeroSection = () => {
                     <div className="w-px h-8 bg-gradient-to-b from-accent to-primary"></div>
                   </div>
                   
-                  <div className="flex items-center gap-4 p-4 bg-background/70 rounded-lg border">
-                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                  <div className="flex items-center gap-4 p-4 bg-white/95 rounded-lg border shadow-sm">
+                    <div className="w-10 h-10 bg-primary/15 rounded-full flex items-center justify-center">
                       <Shield className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <div className="font-medium">API Padronizada</div>
-                      <div className="text-sm text-slate-200">Healthtech/App</div>
+                      <div className="font-medium text-slate-800">API Padronizada</div>
+                      <div className="text-sm text-slate-600">Healthtech/App</div>
                     </div>
                   </div>
                 </div>
