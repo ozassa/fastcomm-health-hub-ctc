@@ -24,11 +24,13 @@ const HeroSection = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="flex items-center gap-4 mb-6">
-                <img 
-                  src="/lovable-uploads/18ffcb20-6460-4a77-837b-0648705e26db.png" 
-                  alt="Fastcomm Logo" 
-                  className="h-12 w-auto"
-                />
+                <div className="bg-white/90 p-3 rounded-lg shadow-sm">
+                  <img 
+                    src="/lovable-uploads/2e2b68d7-64c8-49b8-b7bd-54d6766ac7de.png" 
+                    alt="Fastcomm Logo" 
+                    className="h-8 w-auto"
+                  />
+                </div>
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
                 Interoperabilidade
