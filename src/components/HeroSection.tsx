@@ -5,16 +5,19 @@ import heroBackground from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-muted/30 to-accent/10">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: `url(${heroBackground})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       />
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
       
       {/* Content */}
       <div className="container mx-auto px-6 py-20 relative z-10">
@@ -24,15 +27,13 @@ const HeroSection = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="flex items-center gap-4 mb-6">
-                <div className="bg-slate-800/95 p-4 rounded-lg shadow-lg border border-slate-700/50">
-                  <img 
-                    src="/lovable-uploads/2e2b68d7-64c8-49b8-b7bd-54d6766ac7de.png" 
-                    alt="Fastcomm Logo" 
-                    className="h-8 w-auto"
-                  />
-                </div>
+                <img 
+                  src="/lovable-uploads/2e2b68d7-64c8-49b8-b7bd-54d6766ac7de.png" 
+                  alt="Fastcomm Logo" 
+                  className="h-10 w-auto"
+                />
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+               <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-white">
                 Interoperabilidade
                 <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Simplificada
@@ -40,7 +41,7 @@ const HeroSection = () => {
                 para Saúde
               </h1>
               
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="text-xl text-slate-300 leading-relaxed max-w-2xl">
                 Plataforma de integração em nuvem que conecta todo o ecossistema de saúde com suporte nativo aos padrões 
                 <span className="font-semibold text-primary"> FHIR, HL7 e TISS</span>. 
                 Reduza de 6 meses para 3 semanas o tempo de integração.
@@ -61,16 +62,16 @@ const HeroSection = () => {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-muted">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-slate-700">
+              <div className="flex items-center gap-2 text-sm text-slate-400">
                 <Shield className="w-4 h-4 text-success" />
                 Compliance FHIR R4
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-slate-400">
                 <Lock className="w-4 h-4 text-success" />
                 LGPD Compliant
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-slate-400">
                 <Database className="w-4 h-4 text-success" />
                 99.9% Uptime SLA
               </div>
