@@ -1,37 +1,7 @@
 import { Card } from "@/components/ui/card";
-import { AlertCircle, TrendingDown, Users, Clock } from "lucide-react";
+import { painPoints, painPointsContent } from "@/constants/painPoints";
 
 const PainPointsSection = () => {
-  const painPoints = [
-    {
-      icon: Clock,
-      stat: "60%",
-      title: "Tempo Perdido",
-      description: "do tempo dos profissionais da assistência são dedicados a preencher sistemas e realizar trabalho burocrático",
-      source: "Medscape Physician Burnout Report 2022"
-    },
-    {
-      icon: AlertCircle,
-      stat: "36%",
-      title: "Decisões Prejudicadas",
-      description: "dos médicos atribuem o 'overtreat' à falta de informações ou histórico do paciente",
-      source: "PLOS ONE Study 2017"
-    },
-    {
-      icon: TrendingDown,
-      stat: "47%",
-      title: "Fragmentação",
-      description: "dos desafios de interoperabilidade são causados pela fragmentação dos sistemas de dados existentes",
-      source: "Observatório ANAHP 2022"
-    },
-    {
-      icon: Users,
-      stat: "6 meses",
-      title: "Tempo de Integração",
-      description: "é o tempo médio para integrar sistemas de saúde usando métodos tradicionais - enquanto pacientes aguardam",
-      source: "Análise CTC Healthcare"
-    }
-  ];
 
   return (
     <section className="py-20 bg-gradient-to-br from-destructive/5 to-muted/30">
@@ -41,11 +11,10 @@ const PainPointsSection = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
-              O <span className="text-destructive">Problema</span> é Real
+              {painPointsContent.title} <span className="text-destructive">{painPointsContent.titleHighlight}</span> {painPointsContent.subtitle}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A fragmentação de dados na saúde cria barreiras que impactam diretamente 
-              o atendimento aos pacientes e a eficiência operacional das instituições.
+              {painPointsContent.description}
             </p>
           </div>
 
@@ -83,18 +52,17 @@ const PainPointsSection = () => {
           <div className="text-center">
             <Card className="p-8 bg-gradient-to-r from-primary/10 to-accent/10 border-2 border-primary/20">
               <h3 className="text-2xl font-bold mb-4">
-                <span className="text-primary">Fastcomm</span> é a Solução
+                <span className="text-primary">{painPointsContent.solution.title}</span> {painPointsContent.solution.titleHighlight}
               </h3>
               <p className="text-lg text-muted-foreground mb-6">
-                Transforme dados desconectados em um ecossistema integrado que acelera decisões médicas 
-                e melhora resultados de saúde.
+                {painPointsContent.solution.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
-                  Ver Como Funciona
+                  {painPointsContent.solution.buttons.primary}
                 </button>
                 <button className="border border-input bg-background px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
-                  Casos de Sucesso
+                  {painPointsContent.solution.buttons.secondary}
                 </button>
               </div>
             </Card>

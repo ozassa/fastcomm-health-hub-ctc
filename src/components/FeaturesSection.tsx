@@ -1,45 +1,7 @@
 import { Card } from "@/components/ui/card";
-import { Code, Database, Shield, Zap, Users, BarChart3 } from "lucide-react";
+import { features, featuresSectionContent } from "@/constants/features";
 
 const FeaturesSection = () => {
-  const features = [
-    {
-      icon: Code,
-      title: "Interface Low-Code",
-      description: "Configure integrações complexas através de interface visual intuitiva, sem necessidade de programação avançada.",
-      benefits: ["Reduz tempo de desenvolvimento em 80%", "Interface drag-and-drop", "Templates pré-configurados"]
-    },
-    {
-      icon: Database,
-      title: "Engine FHIR Nativa",
-      description: "Motor de transformação FHIR R4 integrado, com suporte completo aos recursos e perfis mais utilizados na saúde.",
-      benefits: ["FHIR R4 completo", "Validação automática", "Perfis brasileiros inclusos"]
-    },
-    {
-      icon: Shield,
-      title: "Segurança Enterprise",
-      description: "Criptografia end-to-end, compliance LGPD e auditoria completa de todas as transações de dados.",
-      benefits: ["Criptografia AES-256", "Logs de auditoria", "Compliance LGPD nativo"]
-    },
-    {
-      icon: Zap,
-      title: "Performance Otimizada",
-      description: "Processamento paralelo de alta performance com capacidade de escalar para milhões de registros por dia.",
-      benefits: ["Latência < 100ms", "Auto-scaling", "SLA 99.9% uptime"]
-    },
-    {
-      icon: Users,
-      title: "Conectores Prontos",
-      description: "Biblioteca extensa de conectores para principais sistemas hospitalares, HIS e healthtechs do mercado.",
-      benefits: ["50+ conectores nativos", "APIs REST/SOAP", "Sistemas legados"]
-    },
-    {
-      icon: BarChart3,
-      title: "Analytics Integrado",
-      description: "Dashboards em tempo real com métricas de performance, qualidade de dados e monitoramento proativo.",
-      benefits: ["Dashboards personalizáveis", "Alertas inteligentes", "Relatórios automatizados"]
-    }
-  ];
 
   return (
     <section className="py-20 bg-muted/30">
@@ -49,11 +11,10 @@ const FeaturesSection = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
-              Benefícios <span className="text-primary">Técnicos</span>
+              {featuresSectionContent.title} <span className="text-primary">{featuresSectionContent.titleHighlight}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Arquitetura moderna e robusta projetada para atender as demandas mais exigentes 
-              de interoperabilidade na saúde digital.
+              {featuresSectionContent.description}
             </p>
           </div>
 
@@ -101,18 +62,17 @@ const FeaturesSection = () => {
             <Card className="p-10 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-2 border-primary/20">
               <div className="max-w-2xl mx-auto space-y-6">
                 <h3 className="text-3xl font-bold">
-                  Arquitetura de <span className="text-primary">Classe Mundial</span>
+                  {featuresSectionContent.cta.title} <span className="text-primary">{featuresSectionContent.cta.titleHighlight}</span>
                 </h3>
                 <p className="text-lg text-muted-foreground">
-                  Desenvolvido por especialistas em interoperabilidade com mais de 15 anos de experiência 
-                  em sistemas críticos de saúde.
+                  {featuresSectionContent.cta.description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
-                    Ver Arquitetura Técnica
+                    {featuresSectionContent.cta.buttons.primary}
                   </button>
                   <button className="border border-input bg-background px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
-                    Baixar Whitepaper
+                    {featuresSectionContent.cta.buttons.secondary}
                   </button>
                 </div>
               </div>
