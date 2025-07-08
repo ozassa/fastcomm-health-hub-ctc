@@ -1,7 +1,9 @@
+import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Award, Users, Calendar, Globe, Target, Rocket, Shield } from "lucide-react";
+import { scrollToContact } from "@/utils/scroll";
 
-const AboutSection = () => {
+const AboutSection = memo(() => {
   const achievements = [
     {
       icon: Calendar,
@@ -44,7 +46,10 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section 
+      className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+      aria-labelledby="about-title"
+    >
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           
@@ -53,7 +58,7 @@ const AboutSection = () => {
             <div className="flex items-center justify-center gap-4 mb-4">
               <img 
                 src="/lovable-uploads/2e2b68d7-64c8-49b8-b7bd-54d6766ac7de.png" 
-                alt="Fastcomm Logo" 
+                alt="Fastcomm - Logotipo da empresa de interoperabilidade em saúde" 
                 className="h-10 w-auto"
               />
               <span className="text-4xl font-bold text-slate-300">+</span>
@@ -61,7 +66,7 @@ const AboutSection = () => {
                 <span className="font-bold text-primary text-xl">CTC</span>
               </div>
             </div>
-            <h2 className="text-4xl font-bold mb-4 text-white">
+            <h2 id="about-title" className="text-4xl font-bold mb-4 text-white">
               Sobre a <span className="text-primary">CTC</span>
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
@@ -73,7 +78,7 @@ const AboutSection = () => {
           {/* Company Story */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-white">
+              <h3 id="company-story-title" className="text-3xl font-bold text-white">
                 Nossa <span className="text-accent">História</span>
               </h3>
               <div className="space-y-4 text-slate-300 leading-relaxed">
@@ -93,12 +98,21 @@ const AboutSection = () => {
             </div>
 
             {/* Achievements */}
-            <div className="grid grid-cols-2 gap-6">
+            <div 
+              className="grid grid-cols-2 gap-6"
+              role="list"
+              aria-labelledby="achievements-title"
+            >
+              <h3 id="achievements-title" className="sr-only">Conquistas e certificações da empresa</h3>
               {achievements.map((achievement, index) => (
-                <Card key={index} className="p-6 text-center hover:shadow-lg transition-all duration-300 hover:scale-105 bg-gradient-to-br from-slate-800/90 to-slate-700/90 border-slate-600/50">
+                <Card 
+                  key={index} 
+                  className="p-6 text-center hover:shadow-lg transition-all duration-300 hover:scale-105 bg-gradient-to-br from-slate-800/90 to-slate-700/90 border-slate-600/50"
+                  role="listitem"
+                >
                   <div className="space-y-3">
                     <div className="w-12 h-12 mx-auto bg-primary/20 rounded-full flex items-center justify-center border border-primary/30">
-                      <achievement.icon className="w-6 h-6 text-primary" />
+                      <achievement.icon className="w-6 h-6 text-primary" aria-hidden="true" />
                     </div>
                     <div className="font-bold text-lg text-white">{achievement.title}</div>
                     <div className="text-sm text-slate-300">{achievement.description}</div>
@@ -109,9 +123,9 @@ const AboutSection = () => {
           </div>
 
           {/* Values */}
-            <div className="space-y-8">
+          <article className="space-y-8">
               <div className="text-center">
-                <h3 className="text-3xl font-bold mb-4 text-white">
+                <h3 id="values-title" className="text-3xl font-bold mb-4 text-white">
                   Nossos <span className="text-primary">Valores</span>
                 </h3>
                 <p className="text-lg text-slate-300 max-w-2xl mx-auto">
@@ -119,12 +133,20 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div 
+              className="grid md:grid-cols-3 gap-8"
+              role="list"
+              aria-labelledby="values-title"
+            >
               {values.map((value, index) => (
-                <Card key={index} className="p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-slate-800/90 to-slate-700/90 border-slate-600/50">
+                <Card 
+                  key={index} 
+                  className="p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-slate-800/90 to-slate-700/90 border-slate-600/50"
+                  role="listitem"
+                >
                   <div className="space-y-4">
                     <div className="w-14 h-14 bg-gradient-to-br from-primary/30 to-accent/30 rounded-xl flex items-center justify-center border border-primary/30">
-                      <value.icon className="w-7 h-7 text-primary" />
+                      <value.icon className="w-7 h-7 text-primary" aria-hidden="true" />
                     </div>
                     <h4 className="text-xl font-bold text-white">{value.title}</h4>
                     <p className="text-slate-300 leading-relaxed">{value.description}</p>
@@ -132,7 +154,7 @@ const AboutSection = () => {
                 </Card>
               ))}
             </div>
-          </div>
+          </article>
 
           {/* Team CTA */}
           <div className="mt-16 text-center">
@@ -142,7 +164,7 @@ const AboutSection = () => {
               <Card className="relative p-12 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border-2 border-primary/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 rounded-2xl">
                 <div className="max-w-2xl mx-auto space-y-8">
                   <div>
-                    <h3 className="text-4xl font-bold text-white leading-tight">
+                    <h3 id="team-cta-title" className="text-4xl font-bold text-white leading-tight">
                       Conheça Nossa <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Equipe</span>
                     </h3>
                     <p className="text-xl text-slate-300 leading-relaxed">
@@ -163,10 +185,15 @@ const AboutSection = () => {
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-6 justify-center pt-6">
-                    <button className="bg-gradient-to-r from-accent to-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-accent/90 hover:to-primary/90 hover:scale-110 transition-all duration-300 shadow-xl">
+                    <button className="bg-gradient-to-r from-accent to-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-accent/90 hover:to-primary/90 hover:scale-110 transition-all duration-300 shadow-xl"
+                      aria-label="Conhecer a equipe de especialistas da CTC" onClick={scrollToContact}>
                       Conheça o Time
                     </button>
-                    <button className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm">
+                    <button 
+                      className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm"
+                      onClick={scrollToContact}
+                      aria-label="Ver oportunidades de carreira na CTC"
+                    >
                       Trabalhe Conosco
                     </button>
                   </div>
@@ -178,6 +205,8 @@ const AboutSection = () => {
       </div>
     </section>
   );
-};
+});
+
+AboutSection.displayName = 'AboutSection';
 
 export default AboutSection;

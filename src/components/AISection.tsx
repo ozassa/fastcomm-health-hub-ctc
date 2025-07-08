@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Brain, Database, TrendingUp, Shield, Zap, CheckCircle } from "lucide-react";
 
-const AISection = () => {
+const AISection = memo(() => {
   const benefits = [
     {
       icon: Database,
@@ -149,6 +150,8 @@ const AISection = () => {
       </div>
     </section>
   );
-};
+});
+
+AISection.displayName = 'AISection';
 
 export default AISection;

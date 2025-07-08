@@ -1,0 +1,25 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="12" fill="#ffffff"/>
+  <rect width="120" height="120" rx="12" stroke="#e8f5e8" stroke-width="2"/>
+  
+  <!-- Medical symbol background -->
+  <circle cx="60" cy="50" r="30" fill="#1976d2" stroke="#0d47a1" stroke-width="2"/>
+  
+  <!-- White medical cross -->
+  <rect x="50" y="30" width="20" height="40" rx="3" fill="#ffffff"/>
+  <rect x="35" y="40" width="50" height="20" rx="3" fill="#ffffff"/>
+  
+  <!-- SF letters -->
+  <text x="45" y="48" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1976d2">S</text>
+  <text x="68" y="48" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1976d2">F</text>
+  
+  <!-- Franciscan cross elements -->
+  <circle cx="35" cy="25" r="3" fill="#8bc34a"/>
+  <circle cx="85" cy="25" r="3" fill="#8bc34a"/>
+  <circle cx="35" cy="75" r="3" fill="#8bc34a"/>
+  <circle cx="85" cy="75" r="3" fill="#8bc34a"/>
+  
+  <!-- Text -->
+  <text x="60" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1976d2">FSFX</text>
+  <text x="60" y="107" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#666">São Francisco</text>
+</svg>

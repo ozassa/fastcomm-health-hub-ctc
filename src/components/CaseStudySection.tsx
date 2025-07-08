@@ -1,7 +1,9 @@
+import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Quote, TrendingUp, Clock, Database, CheckCircle } from "lucide-react";
+import { scrollToContact } from "@/utils/scroll";
 
-const CaseStudySection = () => {
+const CaseStudySection = memo(() => {
   const metrics = [
     {
       icon: Database,
@@ -141,10 +143,13 @@ const CaseStudySection = () => {
                 sua interoperabilidade em saúde.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-success text-success-foreground px-8 py-3 rounded-lg font-medium hover:bg-success/90 transition-colors">
+                <button className="bg-success text-success-foreground px-8 py-3 rounded-lg font-medium hover:bg-success/90 transition-colors" onClick={scrollToContact}>
                   Solicitar Demonstração
                 </button>
-                <button className="border border-input bg-background px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
+                <button 
+                  className="border border-input bg-background px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                  onClick={scrollToContact}
+                >
                   Ver Mais Cases
                 </button>
               </div>
@@ -154,6 +159,8 @@ const CaseStudySection = () => {
       </div>
     </section>
   );
-};
+});
+
+CaseStudySection.displayName = 'CaseStudySection';
 
 export default CaseStudySection;

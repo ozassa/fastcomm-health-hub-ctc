@@ -1,8 +1,10 @@
+import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Quote, Star, User, Building } from "lucide-react";
 import { testimonials, testimonialStats, testimonialsContent } from "@/constants/testimonials";
+import { scrollToContact } from "@/utils/scroll";
 
-const TestimonialsSection = () => {
+const TestimonialsSection = memo(() => {
 
   return (
     <section className="py-20 bg-muted/30">
@@ -84,10 +86,13 @@ const TestimonialsSection = () => {
                   {testimonialsContent.cta.description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                  <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                  <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors" onClick={scrollToContact}>
                     {testimonialsContent.cta.buttons.primary}
                   </button>
-                  <button className="border border-input bg-background px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
+                  <button 
+                    className="border border-input bg-background px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                    onClick={scrollToContact}
+                  >
                     {testimonialsContent.cta.buttons.secondary}
                   </button>
                 </div>
@@ -98,6 +103,8 @@ const TestimonialsSection = () => {
       </div>
     </section>
   );
-};
+});
+
+TestimonialsSection.displayName = 'TestimonialsSection';
 
 export default TestimonialsSection;

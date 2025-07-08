@@ -1,11 +1,21 @@
+import { memo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Shield, Database, Code, Lock, Smartphone, Brain } from "lucide-react";
+import { Shield, Database, Code, Lock, Smartphone, Brain, Play, Calendar } from "lucide-react";
+import { scrollToContact } from "@/utils/scroll";
+import BasicVideoModal from "@/components/BasicVideoModal";
+import { openCalendly } from "@/config/calendly";
 import heroBackground from "@/assets/hero-bg.jpg";
 
-const HeroSection = () => {
+const HeroSection = memo(() => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+      aria-label="Seção principal - Apresentação do Fastcomm"
+    >
       {/* Background Image */}
       <div 
         className="absolute inset-0 opacity-20"
@@ -14,14 +24,16 @@ const HeroSection = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
+        role="presentation"
+        aria-hidden="true"
       />
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" aria-hidden="true"></div>
       
       {/* Content */}
       <div className="container mx-auto px-6 py-20 relative z-10">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
           
           {/* Left Column - Text Content */}
           <div className="space-y-8">
@@ -29,7 +41,7 @@ const HeroSection = () => {
               <div className="flex items-center gap-4 mb-6">
                 <img 
                   src="/lovable-uploads/2e2b68d7-64c8-49b8-b7bd-54d6766ac7de.png" 
-                  alt="Fastcomm Logo" 
+                  alt="Fastcomm - Logotipo da empresa de interoperabilidade em saúde" 
                   className="h-10 w-auto"
                 />
               </div>
@@ -48,42 +60,68 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="xl" className="group">
+            <div className="flex flex-col sm:flex-row gap-8 items-stretch sm:items-center relative z-10">
+              <Button 
+                variant="hero" 
+                size="xl" 
+                className="group flex-shrink-0 mr-2 sm:mr-0"
+                onClick={() => {
+                  console.log('🖱️ Hero button clicked!');
+                  scrollToContact();
+                }}
+                aria-label="Solicitar demonstração da plataforma Fastcomm"
+              >
                 Solicitar Demonstração
-                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg 
+                  className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Button>
               
-              <Button variant="hero-outline" size="xl">
-                Ver Documentação
+              <Button 
+                variant="hero-outline" 
+                size="xl"
+                onClick={() => setIsVideoModalOpen(true)}
+                aria-label="Ver demonstração em vídeo do Fastcomm"
+                className="group flex-shrink-0 ml-2 sm:ml-0"
+              >
+                <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Ver Demo em Vídeo
               </Button>
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-slate-700">
-              <div className="flex items-center gap-2 text-sm text-slate-300">
-                <Shield className="w-4 h-4 text-success" />
-                Compliance FHIR R4
+            <div 
+              className="flex flex-wrap items-center gap-6 pt-8 border-t border-slate-700"
+              role="list"
+              aria-label="Indicadores de confiança e certificações"
+            >
+              <div className="flex items-center gap-2 text-sm text-slate-300" role="listitem">
+                <Shield className="w-4 h-4 text-success" aria-hidden="true" />
+                <span>Compliance FHIR R4</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-300">
-                <Lock className="w-4 h-4 text-success" />
-                LGPD Compliant
+              <div className="flex items-center gap-2 text-sm text-slate-300" role="listitem">
+                <Lock className="w-4 h-4 text-success" aria-hidden="true" />
+                <span>LGPD Compliant</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-300">
-                <Database className="w-4 h-4 text-success" />
-                99.9% Uptime SLA
+              <div className="flex items-center gap-2 text-sm text-slate-300" role="listitem">
+                <Database className="w-4 h-4 text-success" aria-hidden="true" />
+                <span>99.9% Uptime SLA</span>
               </div>
             </div>
           </div>
 
           {/* Right Column - Visual Diagram */}
-          <div className="relative">
-            <Card className="p-8 bg-gradient-to-br from-card/95 to-muted/90 border-2 border-primary/20 shadow-2xl shadow-primary/25 backdrop-blur-sm hover:shadow-primary/35 transition-all duration-300 hover:scale-105">
+          <div className="relative ml-8 lg:ml-12" role="img" aria-labelledby="integration-flow-title">
+            <Card className="p-8 bg-gradient-to-br from-card/95 to-muted/90 border-2 border-primary/20 shadow-2xl shadow-primary/25 backdrop-blur-sm hover:shadow-primary/35 hover:scale-105 transition-all duration-300">
               <div className="space-y-6">
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-foreground mb-4">
+                  <h3 id="integration-flow-title" className="text-lg font-semibold text-foreground mb-4">
                     Fluxo de Integração
                   </h3>
                 </div>
@@ -216,8 +254,18 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      <BasicVideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoUrl={`/fastcomm-demo.mp4?v=${Date.now()}`}
+        title="Demonstração Fastcomm"
+      />
     </section>
   );
-};
+});
+
+HeroSection.displayName = 'HeroSection';
 
 export default HeroSection;

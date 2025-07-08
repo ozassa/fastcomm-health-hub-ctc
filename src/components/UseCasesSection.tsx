@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Hospital, Smartphone, Building2, Stethoscope, Brain, Shield } from "lucide-react";
 
-const UseCasesSection = () => {
+const UseCasesSection = memo(() => {
   const useCases = [
     {
       icon: Hospital,
@@ -186,6 +187,8 @@ const UseCasesSection = () => {
       </div>
     </section>
   );
-};
+});
+
+UseCasesSection.displayName = 'UseCasesSection';
 
 export default UseCasesSection;

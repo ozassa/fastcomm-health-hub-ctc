@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  fastcomm-health-connect:
+    build: .
+    ports:
+      - "3000:80"
+    container_name: fastcomm-health-connect-hub
+    restart: unless-stopped
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+
+  # Email service
+  email-service:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    container_name: fastcomm-email-service
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - RESEND_API_KEY=${RESEND_API_KEY}
+    depends_on:
+      - fastcomm-health-connect
+
+  # Development service (optional)
+  dev:
+    build:
+      context: .
+      target: build
+    ports:
+      - "5173:5173"
+    container_name: fastcomm-health-connect-dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev -- --host 0.0.0.0
+    profiles:
+      - dev

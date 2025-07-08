@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Rocket, Zap, Users, Globe, CheckCircle, ArrowRight } from "lucide-react";
 
-const HealthTechSection = () => {
+const HealthTechSection = memo(() => {
   const challenges = [
     "Grandes desafios na interoperabilidade de sistemas",
     "Barreira em escalar no mercado de saúde",
@@ -205,6 +206,8 @@ const HealthTechSection = () => {
       </div>
     </section>
   );
-};
+});
+
+HealthTechSection.displayName = 'HealthTechSection';
 
 export default HealthTechSection;
