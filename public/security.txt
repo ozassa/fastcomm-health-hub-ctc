@@ -1,0 +1,7 @@
+Contact: faleconosco@ctctech.com.br
+Contact: https://www.fastcomm.com.br/#contato
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://www.fastcomm.com.br/pgp-key.txt
+Acknowledgments: https://www.fastcomm.com.br/security-acknowledgments
+Policy: https://www.fastcomm.com.br/security-policy
+Hiring: https://www.fastcomm.com.br/careers

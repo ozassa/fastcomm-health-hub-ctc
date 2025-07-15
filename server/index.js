@@ -145,8 +145,8 @@ app.post('/api/send-email', emailValidation, async (req, res) => {
     // Send email using Resend (or simulate in development)
     if (resend) {
       const data = await resend.emails.send({
-        from: 'Fastcomm <noreply@fastcomm.com.br>',
-        to: ['contato@fastcomm.com.br'],
+        from: 'Fastcomm <noreply@sendteste.ctctech.com.br>',
+        to: ['faleconosco@ctctech.com.br'],
         subject: `Nova solicitação de demonstração - ${company}`,
         html: emailHtml,
         replyTo: email
@@ -161,7 +161,7 @@ app.post('/api/send-email', emailValidation, async (req, res) => {
     } else {
       // Development mode - simulate email sending
       console.log('=== SIMULATED EMAIL (Development Mode) ===');
-      console.log('To: contato@fastcomm.com.br');
+      console.log('To: faleconosco@ctctech.com.br');
       console.log(`Subject: Nova solicitação de demonstração - ${escapeHtml(company)}`);
       console.log('From IP:', req.ip);
       console.log('Timestamp:', new Date().toLocaleString('pt-BR'));

@@ -97,7 +97,7 @@ const ContactSection = () => {
         console.error('EmailJS Error:', error);
         toast({
           title: "Erro no envio",
-          description: "Ocorreu um erro ao enviar o formulário. Tente novamente ou entre em contato pelo email contato@fastcomm.com.br",
+          description: "Ocorreu um erro ao enviar o formulário. Tente novamente ou entre em contato pelo email faleconosco@ctctech.com.br",
           variant: "destructive",
         });
       }

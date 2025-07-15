@@ -1,0 +1,27 @@
+{
+  "name": "Fastcomm - Interoperabilidade para Saúde",
+  "short_name": "Fastcomm",
+  "description": "Plataforma FHIR R4 para interoperabilidade em saúde. Conecte HIS, RIS, LIMS e healthtechs com APIs padronizadas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/ctc-favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/ctc-favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["health", "medical", "productivity", "business"],
+  "lang": "pt-BR",
+  "dir": "ltr"
+}

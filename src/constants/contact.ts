@@ -16,7 +16,7 @@ export const contactInfo: ContactInfo[] = [
   {
     icon: Mail,
     title: "E-mail",
-    value: "contato@fastcomm.com.br",
+    value: "faleconosco@ctctech.com.br",
     description: "Resposta em até 4 horas"
   },
   {

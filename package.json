@@ -5,8 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run optimize:assets && vite build",
     "build:dev": "vite build --mode development",
+    "build:prod": "npm run optimize:assets && vite build --mode production",
+    "optimize:assets": "npm run optimize:images && npm run optimize:videos",
+    "optimize:images": "node scripts/optimize-images.js",
+    "optimize:videos": "node scripts/optimize-videos.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
@@ -97,6 +101,10 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "sharp": "^0.32.6",
+    "glob": "^10.3.10",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-static-copy": "^0.17.0"
   }
 }

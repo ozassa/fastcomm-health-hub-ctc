@@ -3,20 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fastcomm - Interoperabilidade Simplificada para Saúde</title>
-    <meta name="description" content="Plataforma low-code para integrações FHIR, HL7 e TISS. Conecte sistemas legados, APIs e healthtechs com segurança e compliance." />
+    <title>Fastcomm - Plataforma FHIR R4 para Interoperabilidade em Saúde | HIS, RIS, LIMS</title>
+    <meta name="description" content="Plataforma FHIR R4 para interoperabilidade em saúde. Conecte HIS, RIS, LIMS e healthtechs com APIs padronizadas. Compliance LGPD e ANVISA. Redução de 60% no tempo de integração." />
     <meta name="author" content="CTC - Fastcomm" />
-    <meta name="keywords" content="FHIR, HL7, TISS, interoperabilidade, saúde digital, healthtech, integração, API" />
+    <meta name="keywords" content="FHIR R4, HL7, TISS, interoperabilidade saúde, HIS integration, RIS PACS, LIMS laboratory, healthtech API, prontuário eletrônico, telemedicina, LGPD compliance" />
     
     <!-- Accessibility and SEO meta tags -->
     <meta name="theme-color" content="#3b82f6" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://fastcomm.health" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://www.fastcomm.com.br" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="language" content="pt-BR" />
+    <meta name="geo.region" content="BR-SP" />
+    <meta name="geo.placename" content="São Paulo" />
+    <meta name="geo.country" content="BR" />
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Fastcomm - Interoperabilidade Simplificada para Saúde" />
-    <meta property="og:description" content="Plataforma low-code para integrações FHIR, HL7 e TISS. Conecte sistemas legados, APIs e healthtechs com segurança e compliance." />
+    <meta property="og:title" content="Fastcomm - Plataforma FHIR R4 para Interoperabilidade em Saúde" />
+    <meta property="og:description" content="Plataforma FHIR R4 para interoperabilidade em saúde. Conecte HIS, RIS, LIMS e healthtechs com APIs padronizadas. Compliance LGPD e ANVISA. Redução de 60% no tempo de integração." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
@@ -29,11 +35,146 @@
     <link rel="icon" type="image/png" href="/ctc-favicon.png" />
     <link rel="shortcut icon" type="image/png" href="/ctc-favicon.png" />
     <link rel="apple-touch-icon" href="/ctc-favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/lovable-uploads/2e2b68d7-64c8-49b8-b7bd-54d6766ac7de.png" as="image" type="image/png">
+    <link rel="preload" href="/assets/hero-bg-eTDV7itL.jpg" as="image" type="image/jpeg">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CTC - Fastcomm",
+      "url": "https://www.fastcomm.com.br",
+      "logo": "https://www.fastcomm.com.br/lovable-uploads/2e2b68d7-64c8-49b8-b7bd-54d6766ac7de.png",
+      "description": "Plataforma FHIR R4 para interoperabilidade em saúde. Conecte HIS, RIS, LIMS e healthtechs com APIs padronizadas.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Centro Empresarial",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-11-9999-9999",
+        "contactType": "customer service",
+        "email": "faleconosco@ctctech.com.br"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/fastcomm-health"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Fastcomm",
+      "description": "Plataforma FHIR R4 para interoperabilidade em saúde. Conecte HIS, RIS, LIMS e healthtechs com APIs padronizadas. Compliance LGPD e ANVISA.",
+      "url": "https://www.fastcomm.com.br",
+      "applicationCategory": "HealthcareApplication",
+      "operatingSystem": "Web-based",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL",
+        "description": "Demonstração gratuita disponível"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "CTC - Fastcomm"
+      },
+      "featureList": [
+        "Integração FHIR R4",
+        "Conectividade HL7",
+        "Padrão TISS",
+        "APIs padronizadas",
+        "Compliance LGPD",
+        "Redução de 60% no tempo de integração"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Fastcomm - Interoperabilidade para Saúde",
+      "description": "Plataforma que conecta sistemas de saúde (HIS, RIS, LIMS) e healthtechs através de APIs padronizadas FHIR R4.",
+      "brand": {
+        "@type": "Brand",
+        "name": "CTC - Fastcomm"
+      },
+      "category": "Healthcare Technology",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "price": "0",
+        "priceCurrency": "BRL",
+        "description": "Demonstração gratuita"
+      }
+    }
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID', {
+        page_title: 'Fastcomm - FHIR R4 Healthcare Interoperability',
+        custom_map: {
+          'custom_parameter_1': 'healthcare_leads',
+          'custom_parameter_2': 'fhir_integration'
+        }
+      });
+      
+      // Enhanced ecommerce for lead tracking
+      gtag('config', 'GA_MEASUREMENT_ID', {
+        custom_map: {'custom_parameter_1': 'lead_source'}
+      });
+    </script>
+
+    <!-- Facebook Pixel (optional) -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'FB_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script>
+
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">
+      _linkedin_partner_id = "LINKEDIN_PARTNER_ID";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.js";
+        s.parentNode.insertBefore(b, s);})(window.lintrk);
+    </script>
   </head>
 
   <body>

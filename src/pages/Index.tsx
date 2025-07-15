@@ -11,10 +11,13 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import SectionErrorBoundary from "@/components/SectionErrorBoundary";
+import { FAQSection } from "@/components/FAQSection";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <GoogleAnalytics />
       {/* Skip Links for Keyboard Navigation */}
       <div className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 z-50 bg-primary text-primary-foreground p-2 rounded">
         <a href="#main-content" className="underline">
@@ -70,6 +73,10 @@ const Index = () => {
         
         <SectionErrorBoundary sectionName="Sobre a Empresa">
           <AboutSection />
+        </SectionErrorBoundary>
+        
+        <SectionErrorBoundary sectionName="FAQ">
+          <FAQSection />
         </SectionErrorBoundary>
       </main>
 
