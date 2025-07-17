@@ -1,73 +1,111 @@
-# Welcome to your Lovable project
+# FastComm Health Connect Hub
 
-## Project info
+## Visão Geral
 
-**URL**: https://lovable.dev/projects/06a78ec4-6282-4ba4-936a-178863ed659d
+O FastComm Health Connect Hub é uma plataforma web moderna desenvolvida para conectar profissionais de saúde e facilitar a comunicação em ambientes hospitalares e clínicos. A aplicação oferece uma interface intuitiva e responsiva para gerenciamento de comunicações em tempo real.
 
-## How can I edit this code?
+## Domínios
 
-There are several ways of editing your application.
+- **Produção**: https://www.fastcomm.com.br
+- **Staging**: https://staging.fastcomm.com.br
 
-**Use Lovable**
+## Tecnologias Utilizadas
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/06a78ec4-6282-4ba4-936a-178863ed659d) and start prompting.
+Esta aplicação foi desenvolvida com as seguintes tecnologias:
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React 18 + TypeScript + Vite
+- **UI Library**: shadcn/ui components (Radix UI)
+- **Styling**: Tailwind CSS
+- **State Management**: TanStack Query
+- **Routing**: React Router DOM v6
+- **Testing**: Vitest + Testing Library
+- **Build**: Vite com SWC
 
-**Use your preferred IDE**
+## Desenvolvimento Local
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Pré-requisitos
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+- [Instalar com nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+### Configuração
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+# 1. Clone o repositório
+git clone <URL_DO_REPOSITORIO>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2. Navegue para o diretório do projeto
+cd fastcomm-health-connect-hub
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3. Instale as dependências
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Comandos Disponíveis
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Desenvolvimento
+npm run dev              # Servidor de desenvolvimento
+npm run build           # Build de produção
+npm run build:dev       # Build de desenvolvimento
+npm run preview         # Preview do build
 
-**Use GitHub Codespaces**
+# Otimização de Assets
+npm run optimize:assets # Otimizar imagens e vídeos
+npm run optimize:images # Otimizar apenas imagens
+npm run optimize:videos # Otimizar apenas vídeos
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Testes e Qualidade
+npm run test            # Executar testes
+npm run test:ui         # Interface de testes
+npm run test:coverage   # Relatório de cobertura
+npm run lint           # Análise de código
+```
 
-## What technologies are used for this project?
+## Estrutura do Projeto
 
-This project is built with:
+```
+src/
+├── components/          # Componentes React
+│   ├── ui/             # Componentes shadcn/ui
+│   └── __tests__/      # Testes de componentes
+├── pages/              # Páginas da aplicação
+├── constants/          # Dados estáticos e configurações
+├── hooks/              # Custom hooks
+├── lib/                # Utilitários e bibliotecas
+├── utils/              # Funções auxiliares
+├── config/             # Arquivos de configuração
+└── assets/             # Assets estáticos
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deploy
 
-## How can I deploy this project?
+O projeto está configurado para deploy via Docker com suporte a múltiplos ambientes:
 
-Simply open [Lovable](https://lovable.dev/projects/06a78ec4-6282-4ba4-936a-178863ed659d) and click on Share -> Publish.
+### Produção
+```bash
+# Build e deploy de produção
+npm run build
+docker-compose -f docker-compose.prod.yml up -d
+```
 
-## Can I connect a custom domain to my Lovable project?
+### Staging
+```bash
+# Deploy para staging
+docker-compose -f docker-compose.staging.yml up -d
+```
 
-Yes, you can!
+## Otimização de Performance
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Lazy loading para imagens e vídeos
+- Pipeline de otimização automática de assets
+- Code splitting via React Router
+- Error boundaries para estabilidade da aplicação
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Contato
+
+Para dúvidas ou suporte, entre em contato através do email: faleconosco@ctctech.com.br
