@@ -133,7 +133,7 @@
     "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-static-copy": "^0.17.0",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.7",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.3.3",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
