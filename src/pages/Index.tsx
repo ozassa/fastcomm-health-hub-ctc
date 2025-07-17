@@ -15,6 +15,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 const Index = () => {
+
   return (
     <div className="min-h-screen">
       <GoogleAnalytics />
@@ -50,6 +51,7 @@ const Index = () => {
         <SectionErrorBoundary sectionName="Funcionalidades">
           <FeaturesSection />
         </SectionErrorBoundary>
+        
         
         <SectionErrorBoundary sectionName="IA e Analytics">
           <AISection />

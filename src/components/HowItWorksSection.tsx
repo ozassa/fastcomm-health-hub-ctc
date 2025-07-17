@@ -1,14 +1,11 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { howItWorksSteps, howItWorksContent } from "@/constants/howItWorks";
 import { scrollToContact } from "@/utils/scroll";
 import { openCalendly } from "@/config/calendly";
-import ScreenshotGallery from "@/components/ScreenshotGallery";
-import VideoModal from "@/components/VideoModal";
 
 const HowItWorksSection = memo(() => {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   return (
     <section 
@@ -91,19 +88,6 @@ const HowItWorksSection = memo(() => {
             ))}
           </div>
 
-          {/* Screenshots Gallery */}
-          <div className="mt-20">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-white mb-4">
-                Veja a Plataforma <span className="text-primary">em Ação</span>
-              </h3>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Explore as principais telas e funcionalidades do Fastcomm
-              </p>
-            </div>
-            
-            <ScreenshotGallery onVideoClick={() => setIsVideoModalOpen(true)} />
-          </div>
 
           {/* CTA - Destacado */}
           <div className="text-center mt-20">
@@ -152,14 +136,6 @@ const HowItWorksSection = memo(() => {
         </div>
       </div>
 
-      {/* Video Modal */}
-      <VideoModal
-        isOpen={isVideoModalOpen}
-        onClose={() => setIsVideoModalOpen(false)}
-        videoUrl="/fastcomm-demo.mp4"
-        title="Demonstração Completa - Fastcomm"
-        description="Veja um walkthrough completo da plataforma e suas funcionalidades"
-      />
     </section>
   );
 });
