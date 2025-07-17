@@ -1,8 +1,20 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "fastcomm-health-connect-hub",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "FastComm Health Connect Hub - Plataforma FHIR R4 para interoperabilidade em saúde",
+  "keywords": ["fhir", "hl7", "healthcare", "interoperability", "react", "typescript"],
+  "author": "CTC - Fastcomm",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozassa/fastcomm-health-hub-ctc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ozassa/fastcomm-health-hub-ctc/issues"
+  },
+  "homepage": "https://www.fastcomm.com.br",
   "scripts": {
     "dev": "vite",
     "build": "npm run optimize:assets && vite build",
@@ -12,12 +24,19 @@
     "optimize:images": "node scripts/optimize-images.js",
     "optimize:videos": "node scripts/optimize-videos.js",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "prepare": "husky install",
+    "commit": "git-cz",
+    "release": "semantic-release",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -105,6 +124,30 @@
     "sharp": "^0.32.6",
     "glob": "^10.3.10",
     "vite-plugin-imagemin": "^0.6.1",
-    "vite-plugin-static-copy": "^0.17.0"
+    "vite-plugin-static-copy": "^0.17.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "semantic-release": "^24.0.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.1.3",
+    "conventional-changelog-cli": "^5.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,json,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }
