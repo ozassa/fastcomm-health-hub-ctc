@@ -4,7 +4,14 @@
   "version": "1.0.0",
   "type": "module",
   "description": "FastComm Health Connect Hub - Plataforma FHIR R4 para interoperabilidade em saúde",
-  "keywords": ["fhir", "hl7", "healthcare", "interoperability", "react", "typescript"],
+  "keywords": [
+    "fhir",
+    "hl7",
+    "healthcare",
+    "interoperability",
+    "react",
+    "typescript"
+  ],
   "author": "CTC - Fastcomm",
   "license": "MIT",
   "repository": {
@@ -21,8 +28,8 @@
     "build:dev": "vite build --mode development",
     "build:prod": "npm run optimize:assets && vite build --mode production",
     "optimize:assets": "npm run optimize:images && npm run optimize:videos",
-    "optimize:images": "node scripts/optimize-images.js",
-    "optimize:videos": "node scripts/optimize-videos.js",
+    "optimize:images": "node scripts/optimize-images.cjs",
+    "optimize:videos": "node scripts/optimize-videos.cjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",

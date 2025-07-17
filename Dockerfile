@@ -1,19 +1,22 @@
 # Build stage
-FROM node:18-alpine AS build
+FROM node:20-alpine AS build
 
 WORKDIR /app
+
+# Install build dependencies
+RUN apk add --no-cache python3 make g++ autoconf automake libtool zlib-dev
 
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci
+# Install dependencies without optional packages that cause build issues
+RUN npm ci --ignore-scripts
 
 # Copy source code
 COPY . .
 
-# Build the application
-RUN npm run build
+# Build the application (use simple build without optimization)
+RUN npm run build:dev
 
 # Production stage
 FROM nginx:alpine AS production
