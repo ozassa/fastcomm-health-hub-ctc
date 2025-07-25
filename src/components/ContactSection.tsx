@@ -101,17 +101,14 @@ import { useState } from "react";
 
           toast({
             title: "Erro na validação",
-            description: "Por favor, corrija os campos 
-  destacados.",
+            description: "Por favor, corrija os campos destacados.",
             variant: "destructive",
           });
         } else {
           console.error('EmailJS Error:', error);
           toast({
             title: "Erro no envio",
-            description: "Ocorreu um erro ao enviar o 
-  formulário. Tente novamente ou entre em contato pelo 
-  email faleconosco@ctctech.com.br",
+            description: "Ocorreu um erro ao enviar o formulário. Tente novamente ou entre em contato pelo email faleconosco@ctctech.com.br",
             variant: "destructive",
           });
         }
@@ -324,8 +321,7 @@ import { useState } from "react";
   placeholder={formPlaceholders.interest} />
                         </SelectTrigger>
                         <SelectContent>
-                          {interestOptions.map((option)
-  => (
+                          {interestOptions.map((option) => (
                             <SelectItem 
   key={option.value} value={option.value}>
                               {option.label}
@@ -419,8 +415,7 @@ import { useState } from "react";
                     className="sr-only"
                     id="form-status"
                   >
-                    {isSubmitting && "Enviando
-  formulário..."}
+                    {isSubmitting && "Enviando formulário..."}
                   </div>
                 </div>
               </Card>
