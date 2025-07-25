@@ -1,4 +1,5 @@
 export interface EmailParams {
+  // Basic form data
   name: string;
   email: string;
   company: string;
@@ -6,6 +7,36 @@ export interface EmailParams {
   interest: string;
   message: string;
   website?: string; // Honeypot field
+  
+  // UTM Parameters
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
+  
+  // Page/Session data
+  referrer?: string;
+  landing_page?: string;
+  page_title?: string;
+  
+  // Device/Browser data
+  user_agent?: string;
+  screen_resolution?: string;
+  device_type?: 'desktop' | 'mobile' | 'tablet';
+  browser?: string;
+  operating_system?: string;
+  
+  // Behavior data
+  time_on_page?: number;
+  scroll_depth?: number;
+  
+  // Source classification
+  source?: string;
+  channel?: string;
+  funnel_stage?: string;
+  tracking_id?: string;
+  submitted_at?: string;
 }
 
 export const sendContactEmail = async (params: EmailParams) => {

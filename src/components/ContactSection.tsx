@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
   import { Card } from "@/components/ui/card";
   import { Button } from "@/components/ui/button";
   import { Input } from "@/components/ui/input";
@@ -21,6 +21,14 @@ import { useState } from "react";
     formLabels,
     formPlaceholders
   } from "@/constants/contact";
+  import { 
+    getTrackingData, 
+    getTimeOnPage, 
+    getScrollDepth, 
+    initializeSession, 
+    trackFormEvent,
+    generateTrackingId 
+  } from "@/utils/tracking";
 
   const contactFormSchema = z.object({
     name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -53,25 +61,60 @@ import { useState } from "react";
   string>>>({});
     const { toast } = useToast();
 
+    // Initialize session tracking on component mount
+    useEffect(() => {
+      initializeSession();
+      trackFormEvent('start');
+    }, []);
+
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
       setIsSubmitting(true);
       setErrors({});
 
       try {
-        const validatedData =
-  contactFormSchema.parse(formData);
+        const validatedData = contactFormSchema.parse(formData);
 
-        // Send email using Resend
-        await sendContactEmail({
+        // Track form submission
+        trackFormEvent('submit', {
+          utm_campaign: getTrackingData().utm_campaign,
+          utm_source: getTrackingData().utm_source,
+          company: validatedData.company,
+          interest: validatedData.interest
+        });
+
+        // Get comprehensive tracking data
+        const trackingData = getTrackingData();
+        const timeOnPage = getTimeOnPage();
+        const scrollDepth = getScrollDepth();
+        const trackingId = generateTrackingId();
+
+        // Prepare complete lead data
+        const completeLeadData = {
+          // Form data
           name: validatedData.name,
           email: validatedData.email,
           company: validatedData.company,
           role: validatedData.role,
           interest: validatedData.interest,
           message: validatedData.message,
-          website: validatedData.website // Honeypot field
-        });
+          website: validatedData.website, // Honeypot field
+          
+          // Tracking data
+          ...trackingData,
+          time_on_page: timeOnPage,
+          scroll_depth: scrollDepth,
+          tracking_id: trackingId,
+          
+          // Source classification
+          source: 'fastcomm_landing_page',
+          channel: 'website_form',
+          funnel_stage: 'top_of_funnel',
+          submitted_at: new Date().toISOString()
+        };
+
+        // Send email using Resend (with tracking data)
+        await sendContactEmail(completeLeadData);
 
         toast({
           title: "Formulário enviado com sucesso!",
@@ -99,6 +142,13 @@ import { useState } from "react";
           });
           setErrors(fieldErrors);
 
+          // Track validation errors
+          trackFormEvent('error', {
+            error_type: 'validation',
+            fields_with_errors: Object.keys(fieldErrors),
+            utm_source: getTrackingData().utm_source
+          });
+
           toast({
             title: "Erro na validação",
             description: "Por favor, corrija os campos destacados.",
@@ -106,6 +156,14 @@ import { useState } from "react";
           });
         } else {
           console.error('EmailJS Error:', error);
+          
+          // Track submission errors
+          trackFormEvent('error', {
+            error_type: 'submission',
+            error_message: error instanceof Error ? error.message : 'Unknown error',
+            utm_source: getTrackingData().utm_source
+          });
+
           toast({
             title: "Erro no envio",
             description: "Ocorreu um erro ao enviar o formulário. Tente novamente ou entre em contato pelo email faleconosco@ctctech.com.br",
@@ -117,12 +175,20 @@ import { useState } from "react";
       }
     };
 
-    const handleInputChange = (field: string, value: 
-  string) => {
+    const handleInputChange = (field: string, value: string) => {
       setFormData(prev => ({
         ...prev,
         [field]: value
       }));
+      
+      // Track field interactions for important fields
+      if (['email', 'company', 'interest'].includes(field) && value.length > 2) {
+        trackFormEvent('field_focus', {
+          field,
+          utm_source: getTrackingData().utm_source,
+          has_value: value.length > 0
+        });
+      }
     };
 
     return (
