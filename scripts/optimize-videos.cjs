@@ -31,9 +31,10 @@ async function checkFFmpeg() {
     await execAsync('ffmpeg -version');
     return true;
   } catch (error) {
-    console.error('❌ FFmpeg not found. Please install FFmpeg:');
-    console.error('macOS: brew install ffmpeg');
-    console.error('Ubuntu: sudo apt install ffmpeg');
+    console.warn('⚠️  FFmpeg not found. Video optimization will be skipped.');
+    console.warn('To enable video optimization, install FFmpeg:');
+    console.warn('macOS: brew install ffmpeg');
+    console.warn('Ubuntu: sudo apt install ffmpeg');
     return false;
   }
 }

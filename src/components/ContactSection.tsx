@@ -70,8 +70,7 @@ import { useState } from "react";
           role: validatedData.role,
           interest: validatedData.interest,
           message: validatedData.message,
-          website: validatedData.website // Honeypot 
-  field
+          website: validatedData.website // Honeypot field
         });
 
         toast({

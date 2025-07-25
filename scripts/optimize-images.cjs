@@ -31,6 +31,10 @@ const CONFIG = {
 // Image processing functions
 async function processImage(inputPath, outputDir, options = {}) {
   const { basename } = path.parse(inputPath);
+  if (!basename) {
+    console.log(`⚠️  Skipping invalid path: ${inputPath}`);
+    return;
+  }
   const nameWithoutExt = basename.split('.')[0];
   
   try {
