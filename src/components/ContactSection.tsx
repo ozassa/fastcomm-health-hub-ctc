@@ -23,18 +23,13 @@ import { useState } from "react";
   } from "@/constants/contact";
 
   const contactFormSchema = z.object({
-    name: z.string().min(2, "Nome deve ter pelo menos 2 
-  caracteres"),
+    name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
     email: z.string().email("Email inválido"),
-    company: z.string().min(2, "Empresa deve ter pelo 
-  menos 2 caracteres"),
+    company: z.string().min(2, "Empresa deve ter pelo menos 2 caracteres"),
     role: z.string().min(1, "Cargo é obrigatório"),
-    interest: z.string().min(1, "Interesse é 
-  obrigatório"),
-    message: z.string().min(10, "Mensagem deve ter pelo 
-  menos 10 caracteres"),
-    website: z.string().max(0, "Campo deve permanecer 
-  vazio") // Honeypot field
+    interest: z.string().min(1, "Interesse é obrigatório"),
+    message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres"),
+    website: z.string().max(0, "Campo deve permanecer vazio") // Honeypot field
   });
 
   type ContactFormData = z.infer<typeof
