@@ -117,11 +117,11 @@ const ContactSection = () => {
   return (
     <section 
       id="contact-section"
-      className="py-20 bg-muted/30"
+      className="py-12 md:py-20 bg-muted/30"
       aria-labelledby="contact-title"
       role="contentinfo"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           
           {/* Header */}
@@ -137,7 +137,8 @@ const ContactSection = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             
             {/* Contact Form */}
-            <Card className="p-8 bg-gradient-to-br from-card to-primary/5">
+            <Card className="p-4 md:p-8 bg-gradient-to-br from-card
+  to-primary/5">
               <div className="space-y-6">
                 <div className="space-y-2">
                   <h3 id="form-title" className="text-2xl font-bold">{contactContent.form.title}</h3>
@@ -152,7 +153,7 @@ const ContactSection = () => {
                   aria-labelledby="form-title"
                   noValidate
                 >
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">{formLabels.name}</Label>
                       <Input
@@ -194,7 +195,7 @@ const ContactSection = () => {
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="company">{formLabels.company}</Label>
                       <Input
