@@ -1,0 +1,31 @@
+# Global code owners
+* @ozassa
+
+# Frontend components
+/src/components/ @ozassa
+
+# Configuration files
+*.yml @ozassa
+*.yaml @ozassa
+*.json @ozassa
+*.js @ozassa
+*.ts @ozassa
+
+# Documentation
+*.md @ozassa
+/docs/ @ozassa
+
+# GitHub workflows
+/.github/ @ozassa
+
+# Deployment configuration
+/docker-compose*.yml @ozassa
+/Dockerfile @ozassa
+/nginx*.conf @ozassa
+/deploy.sh @ozassa
+
+# Package management
+/package*.json @ozassa
+
+# Environment configuration
+.env* @ozassa

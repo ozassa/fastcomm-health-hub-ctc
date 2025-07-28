@@ -1,0 +1,442 @@
+openapi: 3.0.3
+info:
+  title: Fastcomm Landing Page → ikv360 CRM Webhook API
+  description: |
+    Webhook API specification for receiving leads from Fastcomm Landing Page into ikv360 CRM.
+    
+    ## Overview
+    This webhook is called automatically when a user submits the contact form on the Fastcomm Landing Page.
+    The ikv360 system should implement this endpoint to receive and process lead data.
+    
+    ## Authentication
+    Uses webhook secret validation via `X-Webhook-Secret` header.
+    
+    ## Data Flow
+    ```
+    User fills form → Landing Page validates → Webhook sent to ikv360 → Lead stored in MySQL
+    ```
+    
+  version: 1.0.0
+  contact:
+    name: Fastcomm Landing Page Integration
+    email: tech@ctctech.com.br
+
+servers:
+  - url: https://ikv360.aws.domain.com/api
+    description: ikv360 Production Server (AWS)
+  - url: https://staging.ikv360.aws.domain.com/api  
+    description: ikv360 Staging Server
+
+paths:
+  /webhooks/fastcomm-landing:
+    post:
+      summary: Receive lead from Fastcomm Landing Page
+      description: |
+        Endpoint to receive new leads captured from the Fastcomm Landing Page.
+        This webhook is called immediately after a user submits the contact form.
+        
+        ## Expected Response
+        - **200**: Lead processed successfully
+        - **401**: Invalid webhook secret
+        - **422**: Invalid payload data
+        - **500**: Internal server error
+        
+        ## Duplicate Handling
+        If a lead with the same `landing_page_lead_id` already exists, return status `already_exists`.
+        
+      tags:
+        - Webhooks
+      security:
+        - WebhookSecret: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeadWebhookPayload'
+            examples:
+              paid_campaign_lead:
+                summary: Lead from Google Ads campaign
+                value:
+                  landing_page_lead_id: "lp_1706789123_abc456"
+                  source: "fastcomm_landing_page"
+                  lead_data:
+                    name: "Dr. Maria Silva"
+                    email: "maria.silva@hospital.com.br"
+                    company: "Hospital São Paulo"
+                    role: "Diretora de TI"
+                    interest: "Integração FHIR"
+                    message: "Preciso integrar nosso HIS com sistemas externos usando FHIR R4"
+                    utm_data:
+                      source: "google"
+                      medium: "cpc"
+                      campaign: "healthcare-integration-2024"
+                      content: "ad-variant-a"
+                      term: "integracao+fhir+hospital"
+                    technical_data:
+                      ip_address: "191.123.45.67"
+                      user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+                      device_type: "desktop"
+                      browser: "Chrome"
+                      operating_system: "Windows"
+                      screen_resolution: "1920x1080"
+                      page_url: "https://fastcomm.com.br/?utm_source=google&utm_campaign=healthcare-integration-2024"
+                      referrer: "https://www.google.com/search?q=integracao+fhir+hospital"
+                      time_on_page: 78
+                      scroll_depth: 92
+                    campaign_type: "paid"
+                    channel: "website_form"
+                    funnel_stage: "top_of_funnel"
+                  created_at: "2024-01-15T14:30:00.000Z"
+                  timestamp: "2024-01-15T14:30:00.000Z"
+              
+              organic_lead:
+                summary: Lead from organic search
+                value:
+                  landing_page_lead_id: "lp_1706789456_def789"
+                  source: "fastcomm_landing_page"
+                  lead_data:
+                    name: "João Santos"
+                    email: "joao@clinica.com"
+                    company: "Clínica Digital"
+                    role: "CEO"
+                    interest: "Plataforma completa"
+                    message: "Gostaria de conhecer toda a plataforma Fastcomm"
+                    utm_data:
+                      source: "google"
+                      medium: "organic"
+                      campaign: "no-campaign"
+                      content: ""
+                      term: ""
+                    technical_data:
+                      ip_address: "187.45.123.89"
+                      device_type: "mobile"
+                      browser: "Safari"
+                      operating_system: "iOS"
+                      screen_resolution: "375x812"
+                      time_on_page: 45
+                      scroll_depth: 67
+                    campaign_type: "organic"
+                    channel: "website_form"
+                    funnel_stage: "top_of_funnel"
+                  created_at: "2024-01-15T15:45:00.000Z"
+                  timestamp: "2024-01-15T15:45:00.000Z"
+
+      responses:
+        '200':
+          description: Lead processed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+              examples:
+                success:
+                  value:
+                    status: "success"
+                    crm_lead_id: 1234
+                    message: "Lead created successfully"
+                already_exists:
+                  value:
+                    status: "already_exists"
+                    crm_lead_id: 1234
+                    message: "Lead already exists in system"
+        
+        '401':
+          description: Invalid webhook secret
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Unauthorized"
+                message: "Invalid webhook secret"
+        
+        '422':
+          description: Invalid payload data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Validation failed"
+                message: "Required field 'email' is missing"
+                details:
+                  - "email is required"
+                  - "company must be at least 2 characters"
+        
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Internal server error"
+                message: "Database connection failed"
+
+components:
+  securitySchemes:
+    WebhookSecret:
+      type: apiKey
+      in: header
+      name: X-Webhook-Secret
+      description: |
+        Shared secret for webhook authentication. 
+        Must match the secret configured in both systems.
+        
+        Additional headers sent:
+        - `X-Source: fastcomm-landing-page`
+        - `User-Agent: Fastcomm-Landing-Page/1.0`
+
+  schemas:
+    LeadWebhookPayload:
+      type: object
+      required:
+        - landing_page_lead_id
+        - source
+        - lead_data
+        - created_at
+        - timestamp
+      properties:
+        landing_page_lead_id:
+          type: string
+          description: Unique identifier for this lead from the landing page
+          example: "lp_1706789123_abc456"
+          pattern: "^lp_[0-9]+_[a-zA-Z0-9]+$"
+        
+        source:
+          type: string
+          description: Source system identifier
+          enum: ["fastcomm_landing_page"]
+        
+        lead_data:
+          $ref: '#/components/schemas/LeadData'
+        
+        created_at:
+          type: string
+          format: date-time
+          description: When the lead was originally created on the landing page
+          example: "2024-01-15T14:30:00.000Z"
+        
+        timestamp:
+          type: string
+          format: date-time
+          description: When this webhook was sent
+          example: "2024-01-15T14:30:00.000Z"
+
+    LeadData:
+      type: object
+      required:
+        - name
+        - email
+        - company
+        - role
+        - interest
+        - message
+      properties:
+        # Basic lead information
+        name:
+          type: string
+          description: Full name of the lead
+          example: "Dr. Maria Silva"
+          minLength: 2
+          maxLength: 100
+        
+        email:
+          type: string
+          format: email
+          description: Email address of the lead
+          example: "maria.silva@hospital.com.br"
+          maxLength: 255
+        
+        company:
+          type: string
+          description: Company name
+          example: "Hospital São Paulo"
+          minLength: 2
+          maxLength: 200
+        
+        role:
+          type: string
+          description: Job title/role
+          example: "Diretora de TI"
+          maxLength: 100
+        
+        interest:
+          type: string
+          description: Area of interest selected in the form
+          example: "Integração FHIR"
+          enum:
+            - "Integração FHIR"
+            - "Interoperabilidade HL7"
+            - "Padrão TISS"
+            - "Plataforma completa"
+            - "Consultoria especializada"
+        
+        message:
+          type: string
+          description: Message from the lead
+          example: "Preciso integrar nosso HIS com sistemas externos"
+          minLength: 10
+          maxLength: 1000
+        
+        # UTM tracking data
+        utm_data:
+          $ref: '#/components/schemas/UTMData'
+        
+        # Technical tracking data
+        technical_data:
+          $ref: '#/components/schemas/TechnicalData'
+        
+        # Campaign classification
+        campaign_type:
+          type: string
+          description: Automatically classified campaign type
+          enum: ["paid", "organic", "direct", "referral"]
+          example: "paid"
+        
+        channel:
+          type: string
+          description: Lead capture channel
+          example: "website_form"
+          default: "website_form"
+        
+        funnel_stage:
+          type: string
+          description: Lead funnel stage
+          example: "top_of_funnel"
+          default: "top_of_funnel"
+
+    UTMData:
+      type: object
+      properties:
+        source:
+          type: string
+          description: UTM source parameter
+          example: "google"
+          default: "direct"
+        
+        medium:
+          type: string
+          description: UTM medium parameter
+          example: "cpc"
+          default: "none"
+        
+        campaign:
+          type: string
+          description: UTM campaign parameter
+          example: "healthcare-integration-2024"
+          default: "no-campaign"
+        
+        content:
+          type: string
+          description: UTM content parameter (ad variant)
+          example: "ad-variant-a"
+        
+        term:
+          type: string
+          description: UTM term parameter (keywords)
+          example: "integracao+fhir+hospital"
+
+    TechnicalData:
+      type: object
+      properties:
+        ip_address:
+          type: string
+          description: Client IP address
+          example: "191.123.45.67"
+        
+        user_agent:
+          type: string
+          description: Browser user agent string
+          example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        
+        device_type:
+          type: string
+          description: Device type classification
+          enum: ["desktop", "mobile", "tablet"]
+          example: "desktop"
+        
+        browser:
+          type: string
+          description: Browser name
+          example: "Chrome"
+        
+        operating_system:
+          type: string
+          description: Operating system
+          example: "Windows"
+        
+        screen_resolution:
+          type: string
+          description: Screen resolution
+          example: "1920x1080"
+          pattern: "^[0-9]+x[0-9]+$"
+        
+        page_url:
+          type: string
+          format: uri
+          description: Landing page URL with parameters
+          example: "https://fastcomm.com.br/?utm_source=google"
+        
+        referrer:
+          type: string
+          description: Referrer URL
+          example: "https://www.google.com/search?q=integracao+fhir"
+        
+        time_on_page:
+          type: integer
+          description: Time spent on page before converting (seconds)
+          example: 78
+          minimum: 0
+        
+        scroll_depth:
+          type: integer
+          description: Maximum scroll depth reached (percentage)
+          example: 92
+          minimum: 0
+          maximum: 100
+
+    SuccessResponse:
+      type: object
+      required:
+        - status
+        - crm_lead_id
+        - message
+      properties:
+        status:
+          type: string
+          enum: ["success", "already_exists"]
+        
+        crm_lead_id:
+          type: integer
+          description: Internal CRM lead ID
+          example: 1234
+        
+        message:
+          type: string
+          example: "Lead created successfully"
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          example: "Validation failed"
+        
+        message:
+          type: string
+          example: "Required field 'email' is missing"
+        
+        details:
+          type: array
+          items:
+            type: string
+          example: ["email is required", "company must be at least 2 characters"]
+
+tags:
+  - name: Webhooks
+    description: Webhook endpoints for receiving data from external systems

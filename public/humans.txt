@@ -1,0 +1,37 @@
+/* TEAM */
+Team: CTC - Fastcomm Development Team
+Contact: faleconosco@ctctech.com.br
+Location: São Paulo, Brazil
+
+/* SITE */
+Last update: 2025/07/15
+Language: Portuguese (Brazil)
+Doctype: HTML5
+IDE: VS Code
+Standards: HTML5, CSS3, JavaScript ES6+, React, TypeScript
+
+/* COMPONENTS */
+Framework: React 18.3.1
+Build Tool: Vite 5.4.1
+Styling: Tailwind CSS
+UI Components: Shadcn/UI, Radix UI
+Forms: React Hook Form with Zod validation
+State Management: React Query
+Icons: Lucide React
+Notifications: Sonner
+
+/* BACKEND */
+Server: Node.js with Express
+Email Service: Resend
+Security: Helmet, CORS, Rate Limiting
+Validation: Express Validator
+
+/* HOSTING */
+Platform: Docker Containerized
+Frontend: Nginx
+Backend: Node.js
+Domain: fastcomm.health
+
+/* THANKS */
+Thanks to all healthcare professionals who inspired this platform
+Special thanks to the FHIR community for standardizing healthcare data exchange

@@ -1,0 +1,25 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="12" fill="#ffffff"/>
+  <rect width="120" height="120" rx="12" stroke="#fff3e0" stroke-width="2"/>
+  
+  <!-- House/Church silhouette -->
+  <path d="M30 80 L30 50 L45 35 L60 25 L75 35 L90 50 L90 80 Z" fill="#8b4513" stroke="#654321" stroke-width="2"/>
+  
+  <!-- Church cross on top -->
+  <rect x="57" y="20" width="6" height="15" rx="1" fill="#654321"/>
+  <rect x="54" y="25" width="12" height="4" rx="1" fill="#654321"/>
+  
+  <!-- Door -->
+  <rect x="55" y="65" width="10" height="15" rx="5" fill="#654321"/>
+  
+  <!-- Windows -->
+  <circle cx="45" cy="55" r="4" fill="#ffeb3b"/>
+  <circle cx="75" cy="55" r="4" fill="#ffeb3b"/>
+  
+  <!-- Red cross -->
+  <rect x="55" y="45" width="10" height="25" rx="2" fill="#d32f2f"/>
+  <rect x="47.5" y="52.5" width="25" height="10" rx="2" fill="#d32f2f"/>
+  
+  <!-- Text -->
+  <text x="60" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8b4513">SANTA CASA</text>
+</svg>
