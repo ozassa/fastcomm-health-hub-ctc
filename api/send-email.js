@@ -42,61 +42,31 @@ async function sendToIkv360Webhook(leadData) {
   }
 
   try {
+    // Format payload to match IKV360 API expectations
     const webhookPayload = {
-      // Lead identification
-      landing_page_lead_id: leadData.tracking_id || `lp_${Date.now()}`,
-      source: 'fastcomm_landing_page',
-      
-      // Lead data
-      lead_data: {
-        name: leadData.name,
-        email: leadData.email,
-        phone: leadData.phone,
-        company: leadData.company,
-        role: leadData.role,
-        interest: leadData.interest,
-        message: leadData.message,
-        
-        // UTM data for campaign tracking
-        utm_data: {
-          source: leadData.utm_source,
-          medium: leadData.utm_medium,
-          campaign: leadData.utm_campaign,
-          content: leadData.utm_content,
-          term: leadData.utm_term
-        },
-        
-        // Technical data for analysis
-        technical_data: {
-          ip_address: leadData.ip_address,
-          user_agent: leadData.user_agent,
-          device_type: leadData.device_type,
-          browser: leadData.browser,
-          operating_system: leadData.operating_system,
-          screen_resolution: leadData.screen_resolution,
-          page_url: leadData.landing_page,
-          referrer: leadData.referrer,
-          time_on_page: leadData.time_on_page,
-          scroll_depth: leadData.scroll_depth
-        },
-        
-        // Campaign classification
-        campaign_type: leadData.campaign_type,
-        channel: leadData.channel,
-        funnel_stage: leadData.funnel_stage
-      },
-      
-      created_at: leadData.submitted_at || new Date().toISOString(),
-      timestamp: new Date().toISOString()
+      name: leadData.company || 'Empresa não informada',
+      contact_email: leadData.email,
+      contact_name: leadData.name, 
+      contact_job: leadData.role,
+      contact_cel: formatPhoneForDisplay(leadData.phone),
+      marketing_request: `${leadData.message}
+
+--- Dados Adicionais ---
+Interesse: ${leadData.interest}
+UTM Source: ${leadData.utm_source || 'direct'}
+UTM Campaign: ${leadData.utm_campaign || 'no-campaign'}
+UTM Medium: ${leadData.utm_medium || 'none'}
+Dispositivo: ${leadData.device_type || 'unknown'}
+Tempo na página: ${leadData.time_on_page || 0}s
+Tracking ID: ${leadData.tracking_id || 'N/A'}`
     };
 
     const response = await fetch(process.env.IKV360_WEBHOOK_URL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'X-Webhook-Secret': process.env.IKV360_WEBHOOK_SECRET || '',
-        'X-Source': 'fastcomm-landing-page',
-        'User-Agent': 'Fastcomm-Landing-Page/1.0'
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${process.env.IKV360_API_TOKEN}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(webhookPayload)
     });
@@ -109,7 +79,8 @@ async function sendToIkv360Webhook(leadData) {
 
     console.log('IKV360 webhook sent successfully:', {
       status: response.status,
-      lead_id: webhookPayload.landing_page_lead_id,
+      contact_email: webhookPayload.contact_email,
+      company: webhookPayload.name,
       utm_campaign: leadData.utm_campaign
     });
 
@@ -117,7 +88,7 @@ async function sendToIkv360Webhook(leadData) {
       success: true,
       status: response.status,
       response: responseData,
-      webhook_id: webhookPayload.landing_page_lead_id
+      contact_email: webhookPayload.contact_email
     };
 
   } catch (error) {
