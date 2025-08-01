@@ -44,7 +44,8 @@ async function sendToIkv360Webhook(leadData) {
   try {
     console.log('🔧 IKV360 Debug Info:', {
       url: process.env.IKV360_WEBHOOK_URL,
-      token: process.env.IKV360_API_TOKEN ? '***TOKEN_EXISTS***' : 'TOKEN_MISSING'
+      token: process.env.IKV360_API_TOKEN ? '***TOKEN_EXISTS***' : 'TOKEN_MISSING',
+      timestamp: new Date().toISOString()
     });
 
     // Format payload to match IKV360 API expectations
