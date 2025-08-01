@@ -42,6 +42,11 @@ async function sendToIkv360Webhook(leadData) {
   }
 
   try {
+    console.log('🔧 IKV360 Debug Info:', {
+      url: process.env.IKV360_WEBHOOK_URL,
+      token: process.env.IKV360_API_TOKEN ? '***TOKEN_EXISTS***' : 'TOKEN_MISSING'
+    });
+
     // Format payload to match IKV360 API expectations
     const webhookPayload = {
       name: leadData.company || 'Empresa não informada',
@@ -60,6 +65,8 @@ Dispositivo: ${leadData.device_type || 'unknown'}
 Tempo na página: ${leadData.time_on_page || 0}s
 Tracking ID: ${leadData.tracking_id || 'N/A'}`
     };
+
+    console.log('📤 Sending to IKV360:', JSON.stringify(webhookPayload, null, 2));
 
     const response = await fetch(process.env.IKV360_WEBHOOK_URL, {
       method: 'POST',
