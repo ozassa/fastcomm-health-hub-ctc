@@ -36,7 +36,7 @@ async function sendToIkv360Webhook(leadData) {
       contact_email: leadData.email,
       contact_name: leadData.name,
       contact_job: leadData.role,
-      contact_cel: leadData.phone || '(00) 0000-0000', // Required field - use placeholder if empty
+      contact_cel: leadData.phone || '(11) 99999-9999', // Required field - use placeholder if empty
       marketing_request: `${leadData.interest} - ${leadData.message}` // Combined interest + message
     };
 

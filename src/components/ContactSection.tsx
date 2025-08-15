@@ -33,6 +33,7 @@ import { useState, useEffect } from "react";
   const contactFormSchema = z.object({
     name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
     email: z.string().email("Email inválido"),
+    phone: z.string().min(10, "Telefone deve ter pelo menos 10 dígitos").optional(),
     company: z.string().min(2, "Empresa deve ter pelo menos 2 caracteres"),
     role: z.string().min(1, "Cargo é obrigatório"),
     interest: z.string().min(1, "Interesse é obrigatório"),
@@ -48,6 +49,7 @@ import { useState, useEffect } from "react";
   useState<ContactFormData>({
       name: "",
       email: "",
+      phone: "",
       company: "",
       role: "",
       interest: "",
@@ -94,6 +96,7 @@ import { useState, useEffect } from "react";
           // Form data
           name: validatedData.name,
           email: validatedData.email,
+          phone: validatedData.phone,
           company: validatedData.company,
           role: validatedData.role,
           interest: validatedData.interest,
@@ -124,6 +127,7 @@ import { useState, useEffect } from "react";
         setFormData({
           name: "",
           email: "",
+          phone: "",
           company: "",
           role: "",
           interest: "",
@@ -182,7 +186,7 @@ import { useState, useEffect } from "react";
       }));
       
       // Track field interactions for important fields
-      if (['email', 'company', 'interest'].includes(field) && value.length > 2) {
+      if (['email', 'phone', 'company', 'interest'].includes(field) && value.length > 2) {
         trackFormEvent('field_focus', {
           field,
           utm_source: getTrackingData().utm_source,
@@ -293,6 +297,38 @@ import { useState, useEffect } from "react";
                             <AlertCircle className="h-4 
   w-4" aria-hidden="true" />
                             {errors.email}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 
+  gap-4">
+                      <div className="space-y-2">
+                        <Label 
+  htmlFor="phone">{formLabels.phone}</Label>
+                        <Input
+                          id="phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) =>
+  handleInputChange("phone", e.target.value)}
+
+  placeholder={formPlaceholders.phone}
+                          aria-describedby={errors.phone ?
+   "phone-error" : undefined}
+                          aria-invalid={errors.phone ?
+  "true" : "false"}
+                          className={errors.phone ?
+  "border-red-500" : ""}
+                        />
+                        {errors.phone && (
+                          <p id="phone-error" 
+  className="text-sm text-red-500 flex items-center 
+  gap-1" role="alert">
+                            <AlertCircle className="h-4 
+  w-4" aria-hidden="true" />
+                            {errors.phone}
                           </p>
                         )}
                       </div>
