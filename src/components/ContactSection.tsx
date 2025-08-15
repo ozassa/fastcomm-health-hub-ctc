@@ -306,6 +306,35 @@ import { useState, useEffect } from "react";
   gap-4">
                       <div className="space-y-2">
                         <Label 
+  htmlFor="company">{formLabels.company}</Label>
+                        <Input
+                          id="company"
+                          value={formData.company}
+                          onChange={(e) =>
+  handleInputChange("company", e.target.value)}
+
+  placeholder={formPlaceholders.company}
+                          required
+
+  aria-describedby={errors.company ? "company-error" :
+  undefined}
+                          aria-invalid={errors.company ?
+  "true" : "false"}
+                          className={errors.company ?
+  "border-red-500" : ""}
+                        />
+                        {errors.company && (
+                          <p id="company-error" 
+  className="text-sm text-red-500 flex items-center 
+  gap-1" role="alert">
+                            <AlertCircle className="h-4 
+  w-4" aria-hidden="true" />
+                            {errors.company}
+                          </p>
+                        )}
+                      </div>
+                      <div className="space-y-2">
+                        <Label 
   htmlFor="phone">{formLabels.phone}</Label>
                         <Input
                           id="phone"
@@ -336,35 +365,6 @@ import { useState, useEffect } from "react";
 
                     <div className="grid sm:grid-cols-2 
   gap-4">
-                      <div className="space-y-2">
-                        <Label 
-  htmlFor="company">{formLabels.company}</Label>
-                        <Input
-                          id="company"
-                          value={formData.company}
-                          onChange={(e) =>
-  handleInputChange("company", e.target.value)}
-
-  placeholder={formPlaceholders.company}
-                          required
-
-  aria-describedby={errors.company ? "company-error" :
-  undefined}
-                          aria-invalid={errors.company ?
-  "true" : "false"}
-                          className={errors.company ?
-  "border-red-500" : ""}
-                        />
-                        {errors.company && (
-                          <p id="company-error" 
-  className="text-sm text-red-500 flex items-center 
-  gap-1" role="alert">
-                            <AlertCircle className="h-4 
-  w-4" aria-hidden="true" />
-                            {errors.company}
-                          </p>
-                        )}
-                      </div>
                       <div className="space-y-2">
                         <Label 
   htmlFor="role">{formLabels.role}</Label>
