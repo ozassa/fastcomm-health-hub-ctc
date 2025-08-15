@@ -29,11 +29,14 @@ import { useState, useEffect } from "react";
     trackFormEvent,
     generateTrackingId 
   } from "@/utils/tracking";
+  import { formatPhone, unformatPhone, isValidPhone } from "@/utils/masks";
 
   const contactFormSchema = z.object({
     name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
     email: z.string().email("Email inválido"),
-    phone: z.string().min(10, "Telefone deve ter pelo menos 10 dígitos").optional(),
+    phone: z.string().optional().refine((val) => !val || isValidPhone(val), {
+      message: "Telefone deve ter formato válido: (11) 99999-9999"
+    }),
     company: z.string().min(2, "Empresa deve ter pelo menos 2 caracteres"),
     role: z.string().min(1, "Cargo é obrigatório"),
     interest: z.string().min(1, "Interesse é obrigatório"),
@@ -96,7 +99,7 @@ import { useState, useEffect } from "react";
           // Form data
           name: validatedData.name,
           email: validatedData.email,
-          phone: validatedData.phone,
+          phone: validatedData.phone ? unformatPhone(validatedData.phone) : '', // Store only numbers
           company: validatedData.company,
           role: validatedData.role,
           interest: validatedData.interest,
@@ -180,9 +183,16 @@ import { useState, useEffect } from "react";
     };
 
     const handleInputChange = (field: string, value: string) => {
+      let processedValue = value;
+      
+      // Apply masks based on field type
+      if (field === 'phone') {
+        processedValue = formatPhone(value);
+      }
+      
       setFormData(prev => ({
         ...prev,
-        [field]: value
+        [field]: processedValue
       }));
       
       // Track field interactions for important fields
