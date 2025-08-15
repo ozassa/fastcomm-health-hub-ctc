@@ -402,44 +402,43 @@ import { useState, useEffect } from "react";
                           </p>
                         )}
                       </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label 
+                      <div className="space-y-2">
+                        <Label 
   htmlFor="interest">{formLabels.interest}</Label>
-                      <Select value={formData.interest} 
+                        <Select value={formData.interest} 
   onValueChange={(value) => handleInputChange("interest",
    value)}>
-                        <SelectTrigger 
-                          className={errors.interest ? 
+                          <SelectTrigger 
+                            className={errors.interest ? 
   "border-red-500" : ""}
-                          
+                            
   aria-describedby={errors.interest ? "interest-error" : 
   undefined}
-                          aria-invalid={errors.interest ?
+                            aria-invalid={errors.interest ?
    "true" : "false"}
-                        >
-                          <SelectValue 
+                          >
+                            <SelectValue 
   placeholder={formPlaceholders.interest} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {interestOptions.map((option) => (
-                            <SelectItem 
+                          </SelectTrigger>
+                          <SelectContent>
+                            {interestOptions.map((option) => (
+                              <SelectItem 
   key={option.value} value={option.value}>
-                              {option.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      {errors.interest && (
-                        <p id="interest-error" 
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        {errors.interest && (
+                          <p id="interest-error" 
   className="text-sm text-red-500 flex items-center 
   gap-1" role="alert">
-                          <AlertCircle className="h-4 
+                            <AlertCircle className="h-4 
   w-4" aria-hidden="true" />
-                          {errors.interest}
-                        </p>
-                      )}
+                            {errors.interest}
+                          </p>
+                        )}
+                      </div>
                     </div>
 
                     <div className="space-y-2">
