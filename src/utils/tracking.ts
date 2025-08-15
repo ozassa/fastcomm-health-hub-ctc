@@ -217,7 +217,7 @@ export function generateTrackingId(): string {
 /**
  * Track form interaction events
  */
-export function trackFormEvent(eventType: 'start' | 'field_focus' | 'submit' | 'error', data?: any): void {
+export function trackFormEvent(eventType: 'start' | 'field_focus' | 'submit' | 'error', data?: Record<string, unknown>): void {
   const trackingData = {
     event: `form_${eventType}`,
     timestamp: new Date().toISOString(),
@@ -226,7 +226,7 @@ export function trackFormEvent(eventType: 'start' | 'field_focus' | 'submit' | '
   };
   
   // Import analytics functions dynamically to avoid circular dependencies
-  import('@/components/analytics/GoogleAnalytics').then(({ 
+  import('@/utils/analytics').then(({ 
     trackLeadFormStart, 
     trackLeadFormSubmit, 
     trackLeadFormError, 
@@ -245,7 +245,7 @@ export function trackFormEvent(eventType: 'start' | 'field_focus' | 'submit' | '
         trackLeadFormError({ ...data, utm_source: utmData.utm_source, utm_campaign: utmData.utm_campaign });
         break;
       case 'field_focus':
-        trackFieldInteraction({ ...data, utm_source: utmData.utm_source });
+        trackFieldInteraction({ ...data, utm_source: utmData.utm_source } as import('@/types/analytics').FieldData);
         break;
     }
   }).catch(error => {
