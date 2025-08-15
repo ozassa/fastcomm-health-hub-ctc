@@ -93,6 +93,7 @@ export const contactContent = {
 export const formLabels = {
   name: "Nome completo",
   email: "E-mail corporativo",
+  phone: "Telefone",
   company: "Empresa",
   role: "Cargo",
   interest: "Área de interesse",
@@ -102,6 +103,7 @@ export const formLabels = {
 export const formPlaceholders = {
   name: "Seu nome",
   email: "email@empresa.com",
+  phone: "(11) 99999-9999",
   company: "Nome da empresa",
   role: "Selecione seu cargo",
   interest: "O que mais te interessa?",

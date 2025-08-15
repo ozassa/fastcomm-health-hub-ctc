@@ -5,18 +5,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 ### Core Commands
+
 - `npm run dev` - Start development server with Vite
+- `npm run dev:staging` - Start development server in staging mode
 - `npm run build` - Production build with asset optimization
 - `npm run build:dev` - Development build without optimization
+- `npm run build:staging` - Staging build with asset optimization
 - `npm run build:prod` - Production build with full optimization
 - `npm run preview` - Preview production build locally
 
 ### Asset Optimization
+
 - `npm run optimize:assets` - Optimize all assets (images + videos)
 - `npm run optimize:images` - Optimize images using Sharp (generates WebP/AVIF)
 - `npm run optimize:videos` - Optimize videos for web delivery
 
 ### Testing & Quality
+
 - `npm run test` - Run tests with Vitest
 - `npm run test:ui` - Run tests with UI interface
 - `npm run test:run` - Run tests once without watch mode
@@ -27,6 +32,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Architecture Overview
 
 ### Tech Stack
+
 - **Frontend**: React 18 + TypeScript + Vite
 - **UI Library**: shadcn/ui components built on Radix UI
 - **Styling**: Tailwind CSS with custom design system
@@ -36,6 +42,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Build**: Vite with SWC for fast compilation
 
 ### Project Structure
+
 ```
 src/
 ├── components/          # React components
@@ -54,47 +61,73 @@ src/
 ### Key Patterns
 
 **Component Architecture**:
+
 - Large landing page composed of section components
 - Each section wrapped in `SectionErrorBoundary` for resilience
 - Constants extracted to separate files in `src/constants/`
 - Common UI patterns use shadcn/ui components
 
 **Data Organization**:
+
 - Static content organized by section in `src/constants/`
 - Common types and interfaces exported from `src/constants/index.ts`
 - Shared button text and messaging patterns centralized
 
 **Asset Management**:
+
 - Images optimized automatically via `scripts/optimize-images.js`
 - Generates WebP/AVIF formats with multiple sizes
 - Auto-generates responsive image components
 
 **Error Handling**:
+
 - Global `ErrorBoundary` wraps entire app
 - Section-specific `SectionErrorBoundary` for graceful degradation
 - Each section isolated to prevent cascading failures
 
 **Testing**:
+
 - Component tests in `src/components/__tests__/`
 - Utility tests in `src/lib/__tests__/`
 - Uses Vitest + Testing Library + jsdom
 
 ### Import Patterns
+
 - Uses `@/` alias for `src/` directory
 - UI components imported from `@/components/ui/`
 - Constants imported from `@/constants/`
 - Utilities from `@/lib/utils`
 
 ### Styling Conventions
+
 - Tailwind CSS with custom theme in `tailwind.config.ts`
 - Component-specific styles using CSS modules when needed
 - Consistent spacing and typography via design tokens
 
 ### Performance Optimizations
+
 - Lazy loading for images and videos
 - Asset optimization pipeline for production builds
 - Code splitting via React Router
 - Error boundaries prevent full app crashes
+
+## Environment Management
+
+**Multi-Environment Setup**: The project uses 3 separate environments:
+
+- **Development** (`development` branch): Active development, debugging enabled
+- **Staging** (`staging` branch): Pre-production validation, performance testing
+- **Production** (`main` branch): Live environment, fully optimized
+
+**Environment Files**:
+
+- `.env.development` - Local development configuration
+- `.env.staging` - Staging environment configuration
+- `.env.production` - Production environment configuration
+
+**Workflow**: Development → Staging → Production. Never push directly to `main`.
+
+**Documentation**: See `DEVELOPMENT_WORKFLOW.md` for detailed workflow and `VERCEL_ENVIRONMENTS_SETUP.md` for Vercel configuration.
 
 ## Development Notes
 
@@ -107,3 +140,5 @@ src/
 **Component Development**: Follow shadcn/ui patterns for new components. Place reusable components in `src/components/ui/`.
 
 **Error Handling**: Wrap new sections in `SectionErrorBoundary` to maintain app stability.
+
+**Environment Variables**: Use `VITE_` prefix for frontend variables. Backend variables (for API routes) don't need the prefix.
