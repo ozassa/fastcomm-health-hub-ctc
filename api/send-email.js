@@ -28,75 +28,70 @@ async function sendToIkv360Webhook(leadData) {
     return { success: false, error: 'Webhook URL not configured' };
   }
 
+
   try {
+    // IKV360 API format - based on working Postman example
     const webhookPayload = {
-      // Lead identification
-      landing_page_lead_id: leadData.tracking_id || `lp_${Date.now()}`,
-      source: 'fastcomm_landing_page',
-      
-      // Lead data
-      lead_data: {
-        name: leadData.name,
-        email: leadData.email,
-        company: leadData.company,
-        role: leadData.role,
-        interest: leadData.interest,
-        message: leadData.message,
-        
-        // UTM data for campaign tracking
-        utm_data: {
-          source: leadData.utm_source,
-          medium: leadData.utm_medium,
-          campaign: leadData.utm_campaign,
-          content: leadData.utm_content,
-          term: leadData.utm_term
-        },
-        
-        // Technical data for analysis
-        technical_data: {
-          ip_address: leadData.ip_address,
-          user_agent: leadData.user_agent,
-          device_type: leadData.device_type,
-          browser: leadData.browser,
-          operating_system: leadData.operating_system,
-          screen_resolution: leadData.screen_resolution,
-          page_url: leadData.landing_page,
-          referrer: leadData.referrer,
-          time_on_page: leadData.time_on_page,
-          scroll_depth: leadData.scroll_depth
-        },
-        
-        // Campaign classification
-        campaign_type: leadData.campaign_type,
-        channel: leadData.channel,
-        funnel_stage: leadData.funnel_stage
-      },
-      
-      created_at: leadData.submitted_at || new Date().toISOString(),
-      timestamp: new Date().toISOString()
+      name: leadData.company, // Company name
+      contact_email: leadData.email,
+      contact_name: leadData.name,
+      contact_job: leadData.role,
+      contact_cel: leadData.phone || '',
+      marketing_request: `${leadData.interest} - ${leadData.message}` // Combined interest + message
     };
+
+    // Log the request for debugging
+    console.log('Sending to IKV360:', {
+      url: process.env.IKV360_WEBHOOK_URL,
+      environment: process.env.VITE_APP_ENV || 'unknown',
+      payload_keys: Object.keys(webhookPayload),
+      token_preview: process.env.IKV360_WEBHOOK_SECRET?.substring(0, 15) + '...',
+    });
+    
+    console.log('IKV360 payload:', webhookPayload);
 
     const response = await fetch(process.env.IKV360_WEBHOOK_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Webhook-Secret': process.env.IKV360_WEBHOOK_SECRET || '',
-        'X-Source': 'fastcomm-landing-page',
-        'User-Agent': 'Fastcomm-Landing-Page/1.0'
+        'Authorization': `Bearer ${process.env.IKV360_WEBHOOK_SECRET}`,
+        'Accept': 'application/json',
+        'User-Agent': 'Fastcomm-Landing-Page/1.0',
+        'X-Requested-With': 'XMLHttpRequest'
       },
-      body: JSON.stringify(webhookPayload)
+      body: JSON.stringify(webhookPayload),
+      redirect: 'manual' // Don't follow redirects automatically
     });
 
     const responseData = await response.text();
     
+    console.log('IKV360 response:', {
+      status: response.status,
+      statusText: response.statusText,
+      headers: Object.fromEntries(response.headers.entries()),
+      body: responseData.substring(0, 500) + (responseData.length > 500 ? '...' : '')
+    });
+    
+    // Handle redirects (301, 302, etc.)
+    if (response.status >= 300 && response.status < 400) {
+      const location = response.headers.get('location');
+      throw new Error(`IKV360 redirected to: ${location} - This usually means authentication failed`);
+    }
+    
     if (!response.ok) {
-      throw new Error(`Webhook failed: ${response.status} - ${responseData}`);
+      if (response.status === 401) {
+        throw new Error(`Authentication failed - Token may be invalid or expired`);
+      }
+      if (response.status === 405) {
+        throw new Error(`Method not allowed - The endpoint ${process.env.IKV360_WEBHOOK_URL} may be incorrect`);
+      }
+      throw new Error(`Webhook failed: ${response.status} ${response.statusText} - ${responseData.substring(0, 200)}`);
     }
 
     console.log('IKV360 webhook sent successfully:', {
       status: response.status,
-      lead_id: webhookPayload.landing_page_lead_id,
-      utm_campaign: leadData.utm_campaign
+      email: leadData.email,
+      company: leadData.company
     });
 
     return {
@@ -248,45 +243,207 @@ export default async function handler(req, res) {
       ip_address: clientIP
     };
 
-    // Enhanced email template with tracking data
+    // Professional email template with modern design
     const emailHtml = `
-      <h2>Nova solicitação de demonstração - Fastcomm Landing Page</h2>
-      
-      <h3>📋 Dados do Lead</h3>
-      <p><strong>Nome:</strong> ${escapeHtml(name)}</p>
-      <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-      <p><strong>Empresa:</strong> ${escapeHtml(company)}</p>
-      <p><strong>Cargo:</strong> ${escapeHtml(role)}</p>
-      <p><strong>Área de interesse:</strong> ${escapeHtml(interest)}</p>
-      <p><strong>Mensagem:</strong></p>
-      <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
-      
-      <h3>📊 Dados de Campanha (UTM)</h3>
-      <p><strong>Fonte:</strong> ${escapeHtml(completeLeadData.utm_source)}</p>
-      <p><strong>Meio:</strong> ${escapeHtml(completeLeadData.utm_medium)}</p>
-      <p><strong>Campanha:</strong> ${escapeHtml(completeLeadData.utm_campaign)}</p>
-      <p><strong>Tipo de Campanha:</strong> ${escapeHtml(campaign_type)}</p>
-      ${completeLeadData.utm_content ? `<p><strong>Conteúdo:</strong> ${escapeHtml(completeLeadData.utm_content)}</p>` : ''}
-      ${completeLeadData.utm_term ? `<p><strong>Termo:</strong> ${escapeHtml(completeLeadData.utm_term)}</p>` : ''}
-      
-      <h3>💻 Dados Técnicos</h3>
-      <p><strong>Dispositivo:</strong> ${escapeHtml(completeLeadData.device_type)}</p>
-      <p><strong>Browser:</strong> ${escapeHtml(completeLeadData.browser)}</p>
-      <p><strong>Sistema:</strong> ${escapeHtml(completeLeadData.operating_system)}</p>
-      <p><strong>Resolução:</strong> ${escapeHtml(completeLeadData.screen_resolution)}</p>
-      <p><strong>IP:</strong> ${escapeHtml(clientIP)}</p>
-      <p><strong>Referrer:</strong> ${escapeHtml(completeLeadData.referrer)}</p>
-      
-      <h3>⏱️ Dados Comportamentais</h3>
-      <p><strong>Tempo na página:</strong> ${completeLeadData.time_on_page}s</p>
-      <p><strong>Scroll depth:</strong> ${completeLeadData.scroll_depth}%</p>
-      <p><strong>Página de entrada:</strong> ${escapeHtml(completeLeadData.landing_page)}</p>
-      
-      <hr>
-      <p><em>Enviado via Landing Page Fastcomm</em></p>
-      <p><em>ID de Tracking: ${escapeHtml(completeLeadData.tracking_id)}</em></p>
-      <p><em>Timestamp: ${new Date().toLocaleString('pt-BR')}</em></p>
-    `;
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Nova Solicitação - Fastcomm</title>
+      <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background-color: #f8fafc; }
+        .container { max-width: 600px; margin: 0 auto; background: white; }
+        .header { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); padding: 32px 24px; text-align: center; }
+        .header h1 { color: white; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .header p { color: #dbeafe; font-size: 16px; }
+        .content { padding: 32px 24px; }
+        .lead-card { background: #f8fafc; border-radius: 12px; padding: 24px; margin: 24px 0; border-left: 4px solid #3b82f6; }
+        .section { margin: 32px 0; }
+        .section-title { font-size: 20px; font-weight: 600; color: #1f2937; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .data-row { display: flex; margin: 12px 0; padding: 8px 0; border-bottom: 1px solid #e5e7eb; }
+        .data-label { font-weight: 600; color: #4b5563; min-width: 140px; }
+        .data-value { color: #1f2937; flex: 1; }
+        .message-box { background: #f3f4f6; border-radius: 8px; padding: 16px; margin: 16px 0; border-left: 3px solid #10b981; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin: 20px 0; }
+        .stat-card { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; text-align: center; }
+        .stat-number { font-size: 24px; font-weight: 700; color: #3b82f6; }
+        .stat-label { font-size: 12px; color: #6b7280; text-transform: uppercase; margin-top: 4px; }
+        .footer { background: #f9fafb; padding: 24px; text-align: center; border-top: 1px solid #e5e7eb; }
+        .footer p { color: #6b7280; font-size: 14px; margin: 4px 0; }
+        .priority-high { background: #fef2f2; border-left-color: #ef4444; }
+        .priority-medium { background: #fffbeb; border-left-color: #f59e0b; }
+        .priority-low { background: #f0fdf4; border-left-color: #10b981; }
+        .campaign-badge { display: inline-block; background: #3b82f6; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        @media (max-width: 600px) {
+          .container { margin: 0; }
+          .header { padding: 24px 16px; }
+          .content { padding: 24px 16px; }
+          .data-row { flex-direction: column; }
+          .data-label { min-width: auto; margin-bottom: 4px; }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <!-- Header -->
+        <div class="header">
+          <h1>🎯 Novo Lead Capturado</h1>
+          <p>Landing Page Fastcomm • ${new Date().toLocaleDateString('pt-BR')}</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+          <!-- Lead Information Card -->
+          <div class="lead-card priority-high">
+            <div class="section">
+              <h2 class="section-title">👤 Informações do Lead</h2>
+              
+              <div class="data-row">
+                <div class="data-label">Nome:</div>
+                <div class="data-value"><strong>${escapeHtml(name)}</strong></div>
+              </div>
+              
+              <div class="data-row">
+                <div class="data-label">Email:</div>
+                <div class="data-value">
+                  <a href="mailto:${escapeHtml(email)}" style="color: #3b82f6; text-decoration: none;">
+                    ${escapeHtml(email)}
+                  </a>
+                </div>
+              </div>
+              
+              <div class="data-row">
+                <div class="data-label">Empresa:</div>
+                <div class="data-value"><strong>${escapeHtml(company)}</strong></div>
+              </div>
+              
+              <div class="data-row">
+                <div class="data-label">Cargo:</div>
+                <div class="data-value">${escapeHtml(role)}</div>
+              </div>
+              
+              <div class="data-row">
+                <div class="data-label">Interesse:</div>
+                <div class="data-value">
+                  <span class="campaign-badge">${escapeHtml(interest)}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="message-box">
+              <strong>💬 Mensagem:</strong><br>
+              ${escapeHtml(message).replace(/\n/g, '<br>')}
+            </div>
+          </div>
+
+          <!-- Campaign Data -->
+          <div class="section">
+            <h2 class="section-title">📊 Dados de Campanha</h2>
+            
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-number">${escapeHtml(completeLeadData.utm_source)}</div>
+                <div class="stat-label">Fonte</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">${escapeHtml(completeLeadData.utm_medium)}</div>
+                <div class="stat-label">Meio</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">${escapeHtml(campaign_type)}</div>
+                <div class="stat-label">Tipo</div>
+              </div>
+            </div>
+
+            <div class="data-row">
+              <div class="data-label">Campanha:</div>
+              <div class="data-value">${escapeHtml(completeLeadData.utm_campaign)}</div>
+            </div>
+            ${completeLeadData.utm_content ? `
+            <div class="data-row">
+              <div class="data-label">Conteúdo:</div>
+              <div class="data-value">${escapeHtml(completeLeadData.utm_content)}</div>
+            </div>` : ''}
+            ${completeLeadData.utm_term ? `
+            <div class="data-row">
+              <div class="data-label">Termo:</div>
+              <div class="data-value">${escapeHtml(completeLeadData.utm_term)}</div>
+            </div>` : ''}
+          </div>
+
+          <!-- Behavioral Data -->
+          <div class="section">
+            <h2 class="section-title">⏱️ Dados Comportamentais</h2>
+            
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-number">${completeLeadData.time_on_page || 0}s</div>
+                <div class="stat-label">Tempo na Página</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">${completeLeadData.scroll_depth || 0}%</div>
+                <div class="stat-label">Scroll Depth</div>
+              </div>
+            </div>
+
+            <div class="data-row">
+              <div class="data-label">Página de Entrada:</div>
+              <div class="data-value">${escapeHtml(completeLeadData.landing_page || 'N/A')}</div>
+            </div>
+            <div class="data-row">
+              <div class="data-label">Referrer:</div>
+              <div class="data-value">${escapeHtml(completeLeadData.referrer)}</div>
+            </div>
+          </div>
+
+          <!-- Technical Data (Collapsible) -->
+          <details class="section">
+            <summary class="section-title" style="cursor: pointer;">💻 Dados Técnicos (clique para expandir)</summary>
+            <div style="margin-top: 16px;">
+              <div class="data-row">
+                <div class="data-label">Dispositivo:</div>
+                <div class="data-value">${escapeHtml(completeLeadData.device_type || 'N/A')}</div>
+              </div>
+              <div class="data-row">
+                <div class="data-label">Browser:</div>
+                <div class="data-value">${escapeHtml(completeLeadData.browser || 'N/A')}</div>
+              </div>
+              <div class="data-row">
+                <div class="data-label">Sistema:</div>
+                <div class="data-value">${escapeHtml(completeLeadData.operating_system || 'N/A')}</div>
+              </div>
+              <div class="data-row">
+                <div class="data-label">Resolução:</div>
+                <div class="data-value">${escapeHtml(completeLeadData.screen_resolution || 'N/A')}</div>
+              </div>
+              <div class="data-row">
+                <div class="data-label">IP:</div>
+                <div class="data-value">${escapeHtml(clientIP)}</div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+          <p><strong>Fastcomm Health Hub</strong></p>
+          <p>ID de Tracking: <code>${escapeHtml(completeLeadData.tracking_id)}</code></p>
+          <p>Ambiente: <strong>${escapeHtml(completeLeadData.source || 'fastcomm_landing_page')}</strong></p>
+          <p>Gerado em: ${new Date().toLocaleString('pt-BR', { 
+            timeZone: 'America/Sao_Paulo',
+            day: '2-digit',
+            month: '2-digit', 
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          })}</p>
+        </div>
+      </div>
+    </body>
+    </html>`;
 
     // Send email
     const data = await resend.emails.send({
