@@ -92,7 +92,7 @@
     "express": "^5.1.0",
     "input-otp": "^1.2.4",
     "install": "^0.13.0",
-    "lucide-react": "^0.462.0",
+    "lucide-react": "^0.539.0",
     "next-themes": "^0.3.0",
     "npm": "^11.5.1",
     "react": "^18.3.1",
