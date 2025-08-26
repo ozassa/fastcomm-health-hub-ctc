@@ -189,13 +189,15 @@ const AboutSection = memo(() => {
                       aria-label="Conhecer a equipe de especialistas da CTC" onClick={scrollToContact}>
                       Conheça o Time
                     </button>
-                    <button 
-                      className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm"
-                      onClick={scrollToContact}
+                    <a 
+                      href="https://www.inhire.com.br/carreiras/ctctech/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm text-center"
                       aria-label="Ver oportunidades de carreira na CTC"
                     >
                       Trabalhe Conosco
-                    </button>
+                    </a>
                   </div>
                 </div>
               </Card>

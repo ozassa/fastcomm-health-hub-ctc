@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { scrollToContact } from "@/utils/scroll";
 
 const faqData = [
   {
@@ -96,12 +97,13 @@ export const FAQSection = () => {
           <p className="text-gray-600 mb-4">
             Não encontrou a resposta que procurava?
           </p>
-          <a
-            href="#contato"
+          <button
+            onClick={scrollToContact}
             className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
+            aria-label="Entrar em contato através do formulário"
           >
             Fale Conosco
-          </a>
+          </button>
         </div>
       </div>
     </section>

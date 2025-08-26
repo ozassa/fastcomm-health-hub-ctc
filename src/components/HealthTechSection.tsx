@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Rocket, Zap, Users, Globe, CheckCircle, ArrowRight } from "lucide-react";
+import { scrollToContact } from "@/utils/scroll";
 
 const HealthTechSection = memo(() => {
   const challenges = [
@@ -191,10 +192,18 @@ const HealthTechSection = memo(() => {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                    <button className="bg-gradient-to-r from-accent to-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-accent/90 hover:to-primary/90 hover:scale-110 transition-all duration-300 shadow-xl">
+                    <button 
+                      onClick={scrollToContact}
+                      className="bg-gradient-to-r from-accent to-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-accent/90 hover:to-primary/90 hover:scale-110 transition-all duration-300 shadow-xl"
+                      aria-label="Conectar sua startup ao ecossistema Fastcomm"
+                    >
                       Conectar Minha Startup
                     </button>
-                    <button className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm">
+                    <button 
+                      onClick={scrollToContact}
+                      className="border-2 border-slate-400/50 bg-slate-700/50 text-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-600/70 hover:border-slate-300 hover:text-white hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm"
+                      aria-label="Acessar documentação do Fastcomm"
+                    >
                       Ver Documentação
                     </button>
                   </div>

@@ -9,8 +9,8 @@
  * Exemplo de URL: https://calendly.com/seu-usuario/demonstracao-fastcomm
  */
 
-// IMPORTANTE: Substitua pela sua URL real do Calendly
-export const CALENDLY_URL = "https://calendly.com/seu-usuario/demonstracao-fastcomm";
+// IMPORTANTE: URL configurada para conta ativa do Arthur Ozassa
+export const CALENDLY_URL = "https://calendly.com/arthur-ozassa-ctctech/30min";
 
 /**
  * Abre o Calendly em uma nova aba
