@@ -597,7 +597,7 @@ import { useState, useEffect } from "react";
                     <p className="text-sm 
   text-muted-foreground">
 
-  {contactContent.urgencySection.description}
+  {contactContent.urgencySection.description}{" "}
                       <span className="font-semibold 
   text-primary">
   {contactContent.urgencySection.highlightText}</span>.

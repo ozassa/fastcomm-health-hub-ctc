@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Brain, Database, TrendingUp, Shield, Zap, CheckCircle } from "lucide-react";
+import { scrollToContact } from "@/utils/scroll";
 
 const AISection = memo(() => {
   const benefits = [
@@ -116,7 +117,11 @@ const AISection = memo(() => {
                       <p className="text-sm text-muted-foreground mb-4">
                         Dados FHIR estruturados prontos para seus algoritmos
                       </p>
-                      <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                      <button 
+                        onClick={scrollToContact}
+                        className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        aria-label="Acessar documentação da API do Fastcomm"
+                      >
                         Ver Documentação API
                       </button>
                     </div>
@@ -137,10 +142,18 @@ const AISection = memo(() => {
                 garantindo escalabilidade e disponibilidade para aplicações de IA mais exigentes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors">
+                <button 
+                  onClick={scrollToContact}
+                  className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors"
+                  aria-label="Ver arquitetura cloud do Fastcomm"
+                >
                   Ver Arquitetura
                 </button>
-                <button className="border border-input bg-background px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
+                <button 
+                  onClick={scrollToContact}
+                  className="border border-input bg-background px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                  aria-label="Testar API do Fastcomm"
+                >
                   Testar API
                 </button>
               </div>
