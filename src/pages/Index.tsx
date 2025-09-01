@@ -10,7 +10,6 @@ import UseCasesSection from "@/components/UseCasesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
-import BlogSection from "@/components/BlogSection";
 import SectionErrorBoundary from "@/components/SectionErrorBoundary";
 import { FAQSection } from "@/components/FAQSection";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
@@ -76,10 +75,6 @@ const Index = () => {
         
         <SectionErrorBoundary sectionName="Sobre a Empresa">
           <AboutSection />
-        </SectionErrorBoundary>
-        
-        <SectionErrorBoundary sectionName="Recursos Técnicos">
-          <BlogSection />
         </SectionErrorBoundary>
         
         <SectionErrorBoundary sectionName="FAQ">

@@ -110,12 +110,4 @@
         <priority>0.7</priority>
     </url>
     
-    <!-- Blog and Resources Section -->
-    <url>
-        <loc>https://www.fastcomm.com.br#recursos</loc>
-        <lastmod>2025-09-01T10:00:00+00:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.95</priority>
-    </url>
-    
 </urlset>
