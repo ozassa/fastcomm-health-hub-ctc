@@ -1,13 +1,49 @@
 {
-  "name": "Fastcomm - Interoperabilidade para Saúde",
+  "name": "Fastcomm - Plataforma FHIR R4 para Interoperabilidade em Saúde",
   "short_name": "Fastcomm",
-  "description": "Plataforma FHIR R4 para interoperabilidade em saúde. Conecte HIS, RIS, LIMS e healthtechs com APIs padronizadas.",
-  "start_url": "/",
+  "description": "Plataforma FHIR R4 líder para interoperabilidade em saúde no Brasil. Conecte HIS, RIS, LIMS e healthtechs com APIs padronizadas. Compliance LGPD e ANVISA.",
+  "start_url": "/?utm_source=pwa&utm_medium=homescreen",
+  "scope": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "background_color": "#ffffff",
   "theme_color": "#3b82f6",
-  "orientation": "portrait-primary",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
   "icons": [
+    {
+      "src": "/ctc-favicon.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ctc-favicon.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ctc-favicon.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ctc-favicon.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ctc-favicon.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/ctc-favicon.png",
       "sizes": "192x192",
@@ -16,12 +52,50 @@
     },
     {
       "src": "/ctc-favicon.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ctc-favicon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
     }
   ],
-  "categories": ["health", "medical", "productivity", "business"],
+  "categories": ["health", "medical", "productivity", "business", "utilities"],
   "lang": "pt-BR",
-  "dir": "ltr"
+  "dir": "ltr",
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "shortcuts": [
+    {
+      "name": "Contato",
+      "short_name": "Contato",
+      "description": "Entre em contato com nossa equipe",
+      "url": "/#contato",
+      "icons": [{"src": "/ctc-favicon.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Demonstração",
+      "short_name": "Demo",
+      "description": "Solicitar demonstração da plataforma",
+      "url": "/#contato?demo=true",
+      "icons": [{"src": "/ctc-favicon.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Casos de Uso",
+      "short_name": "Casos",
+      "description": "Ver casos de uso da plataforma",
+      "url": "/#casos-de-uso",
+      "icons": [{"src": "/ctc-favicon.png", "sizes": "192x192"}]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/lovable-uploads/2e2b68d7-64c8-49b8-b7bd-54d6766ac7de.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Tela principal da plataforma Fastcomm"
+    }
+  ]
 }

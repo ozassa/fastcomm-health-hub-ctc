@@ -124,7 +124,7 @@ import { useState, useEffect } from "react";
 
         toast({
           title: "Formulário enviado com sucesso!",
-          description: "Entraremos em contato em até 24 horas úteis.",
+          description: "Entraremos em contato em até  24 horas úteis.",
         });
 
         setFormData({

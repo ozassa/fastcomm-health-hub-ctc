@@ -37,10 +37,11 @@ export const caseStudyMetrics: CaseStudyMetric[] = [
 export const caseStudyContent = {
   title: "Caso de",
   titleHighlight: "Sucesso",
-  description: "Hospital Moinhos de Vento transforma operação com integração completa do ecossistema de dados",
+  subtitle: "em Interoperabilidade Hospitalar",
+  description: "Hospital Moinhos de Vento transforma operação com integração completa FHIR de sistema hospitalar HIS, RIS radiológico e LIMS laboratorial",
   hospital: {
     name: "Hospital Moinhos de Vento",
-    description: "Uma das instituições de saúde mais respeitadas do Brasil unificou mais de 50 sistemas internos com a interoperabilidade do Fastcomm, transformando completamente seu atendimento médico.",
+    description: "Uma das instituições de saúde mais respeitadas do Brasil unificou mais de 50 sistemas internos (HIS Tasy, RIS radiológico, LIMS laboratorial) com engine de interoperabilidade Fastcomm, transformando completamente atendimento médico através de dados FHIR padronizados.",
     results: {
       title: "Resultados Alcançados:",
       items: [
