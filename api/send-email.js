@@ -45,7 +45,7 @@ async function sendToIkv360Webhook(leadData) {
       url: process.env.IKV360_WEBHOOK_URL,
       environment: process.env.VITE_APP_ENV || 'unknown',
       payload_keys: Object.keys(webhookPayload),
-      token_preview: process.env.IKV360_WEBHOOK_SECRET?.substring(0, 15) + '...',
+      token_preview: process.env.IKV360_API_TOKEN?.substring(0, 15) + '...',
     });
     
     console.log('IKV360 payload:', webhookPayload);
@@ -54,7 +54,7 @@ async function sendToIkv360Webhook(leadData) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.IKV360_WEBHOOK_SECRET}`,
+        'Authorization': `Bearer ${process.env.IKV360_API_TOKEN}`,
         'Accept': 'application/json',
         'User-Agent': 'Fastcomm-Landing-Page/1.0',
         'X-Requested-With': 'XMLHttpRequest'

@@ -17,7 +17,7 @@ export const contactInfo: ContactInfo[] = [
     icon: Mail,
     title: "E-mail",
     value: "faleconosco@ctctech.com.br",
-    description: "Resposta em até 4 horas"
+    description: "Resposta em até  4 horas"
   },
   {
     icon: Phone,
@@ -86,7 +86,7 @@ export const contactContent = {
   urgencySection: {
     title: "Resposta Garantida",
     description: "Nossa equipe técnica responde todas as solicitações em até",
-    highlightText: "4 horas úteis"
+    highlightText: " 4 horas úteis"
   }
 };
 

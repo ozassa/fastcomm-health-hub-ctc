@@ -1,25 +1,67 @@
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://www.fastcomm.com.br/sitemap.xml
 
-# Crawl delay (optional)
-Crawl-delay: 1
+# Disallow sensitive paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.well-known/
+Disallow: /server/
 
-# Disallow specific paths if needed
-# Disallow: /admin/
-# Disallow: /api/
+# Allow important resources
+Allow: /public/
+Allow: /assets/
+Allow: /video/
+Allow: /logos/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.webp
+Allow: /*.svg
+Allow: /*.mp4
+Allow: /*.webm
 
-# Allow specific crawlers
+# Specific bot configurations
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: LinkedInBot
 Allow: /
+Crawl-delay: 2
 
 User-agent: facebookexternalhit
 Allow: /
+Crawl-delay: 1
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 1
+
+# Medical and healthcare specific crawlers
+User-agent: HealthlineBot
+Allow: /
+
+User-agent: WebMDBot
+Allow: /
+
+# Block unwanted bots
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
