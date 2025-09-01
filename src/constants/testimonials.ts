@@ -15,27 +15,27 @@ export interface Stat {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "A plataforma Fastcomm nos permitiu acelerar significativamente nossos processos de integração de sistemas. A redução no tempo de desenvolvimento foi notável e nossa equipe conseguiu implementar as soluções com muito mais agilidade.",
+    quote: "A principal necessidade era acabar com diversas bases de dados com informações desconectadas. Trabalhar para que todos os dados fossem mais íntegros e conseguisse ter maior especialização na utilização.",
+    author: "Vitor Ferreira",
+    position: "Gerente de TI de Negócios de Venda",
+    company: "Hospital Moinhos de Vento",
+    avatar: "VF",
+    rating: 5
+  },
+  {
+    quote: "O Fastcomm nos permitiu unificar mais de 50 sistemas internos com interoperabilidade eficiente. O resultado foi um atendimento médico mais ágil, com diagnósticos otimizados e redução de exames redundantes.",
     author: "Equipe Técnica",
     position: "Liderança de TI",
-    company: "Hospital Partner",
-    avatar: "HP",
+    company: "Hospital Moinhos de Vento",
+    avatar: "MV",
     rating: 5
   },
   {
-    quote: "O suporte técnico especializado e a facilidade de implementação da plataforma FHIR superaram nossas expectativas. Conseguimos conectar diferentes sistemas de forma muito mais eficiente.",
+    quote: "A plataforma Fastcomm revolucionou nossa capacidade de integração com sistemas hospitalares. Como healthtech, conseguimos conectar rapidamente com diferentes HIS e acelerar nossa expansão no mercado de oncologia digital.",
     author: "Equipe de Desenvolvimento",
-    position: "Arquitetura de Sistemas",
-    company: "Healthtech Partner",
-    avatar: "HT",
-    rating: 5
-  },
-  {
-    quote: "A compliance e os recursos de auditoria da plataforma foram essenciais para atender nossos requisitos de segurança. A solução trouxe mais confiabilidade aos nossos processos de integração.",
-    author: "Equipe de Compliance",
-    position: "Segurança da Informação",
-    company: "Organização de Saúde",
-    avatar: "OS",
+    position: "CTO",
+    company: "WeCancer",
+    avatar: "WC",
     rating: 5
   }
 ];
