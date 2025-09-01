@@ -12,38 +12,41 @@ export const useCases: UseCase[] = [
   {
     icon: Hospital,
     title: "Hospitais e Clínicas",
-    description: "Integre sistemas HIS legados com soluções modernas de telemedicina e prontuário eletrônico.",
+    description: "Integre sistemas hospitalares HIS legados (Tasy, MV Soul, Philips TASY) com soluções modernas de telemedicina e prontuário eletrônico PEP. Transforme dados hospitalares fragmentados em ecossistema integrado através de padrões FHIR R4 e HL7 v2/v3.",
     examples: [
-      "Integração HIS → Telemedicina",
-      "Prontuário único centralizado", 
-      "Laudos automatizados",
-      "Faturamento TISS integrado"
+      "Integração HIS → Plataforma telemedicina FHIR",
+      "Prontuário eletrônico único centralizado", 
+      "Laudos radiológicos automatizados via RIS",
+      "Faturamento TISS integrado com operadoras",
+      "Conectar sistema hospitalar com apps móveis"
     ],
-    metrics: "Reduz em 60% o tempo de integração"
+    metrics: "Reduz em 60% o tempo de integração hospitalar"
   },
   {
     icon: Smartphone,
-    title: "Healthtechs e Startups",
-    description: "Conecte sua aplicação a múltiplos sistemas hospitalares sem complexidade técnica.",
+    title: "Healthtechs e Startups de Saúde Digital",
+    description: "Conecte sua aplicação de telemedicina ou healthtech a múltiplos sistemas hospitalares sem complexidade técnica. Acesse dados FHIR padronizados de hospitais através de APIs REST modernas, eliminando a necessidade de desenvolver conectores específicos para cada HIS.",
     examples: [
-      "APIs FHIR padronizadas",
-      "Onboarding automatizado",
-      "Conectores plug-and-play",
-      "Marketplace de integrações"
+      "APIs FHIR R4 padronizadas para healthtechs",
+      "Onboarding automatizado em hospitais",
+      "Conectores plug-and-play para HIS/RIS",
+      "Marketplace de integrações FHIR",
+      "SDK para desenvolvimento de apps médicos"
     ],
-    metrics: "Time-to-market 5x mais rápido"
+    metrics: "Time-to-market 5x mais rápido para healthtechs"
   },
   {
     icon: Building2,
-    title: "Operadoras de Saúde",
-    description: "Centralize dados de múltiplas redes credenciadas com compliance total ao padrão TISS.",
+    title: "Operadoras de Saúde e Planos Médicos",
+    description: "Centralize dados de múltiplas redes credenciadas com compliance total ao padrão TISS 4.0. Integre automaticamente dados de hospitais, clínicas e laboratórios credenciados através de transformação FHIR para TISS, eliminando processos manuais de auditoria.",
     examples: [
-      "Consolidação de dados",
-      "Auditoria automatizada",
-      "Relatórios regulatórios",
-      "Analytics preditivo"
+      "Consolidação automática de dados TISS",
+      "Auditoria automatizada de glosas",
+      "Relatórios regulatórios ANS",
+      "Analytics preditivo de custos assistenciais",
+      "Monitoramento de utilização em tempo real"
     ],
-    metrics: "Economia de 40% em auditoria"
+    metrics: "Economia de 40% em processos de auditoria médica"
   },
   {
     icon: Stethoscope,
@@ -59,15 +62,16 @@ export const useCases: UseCase[] = [
   },
   {
     icon: Brain,
-    title: "IA e Analytics",
-    description: "Alimente seus modelos de IA com dados estruturados e padronizados de múltiplas fontes.",
+    title: "IA em Saúde e Machine Learning Médico",
+    description: "Alimente algoritmos de inteligência artificial médica com dados FHIR estruturados e padronizados de múltiplas fontes hospitalares. Datasets prontos para machine learning com dados de pacientes, diagnósticos, exames e tratamentos normalizados.",
     examples: [
-      "Datasets normalizados",
-      "APIs de machine learning",
-      "Pipelines de dados",
-      "Modelos preditivos"
+      "Datasets FHIR normalizados para IA médica",
+      "APIs REST para machine learning clínico",
+      "Pipelines de dados para análise preditiva",
+      "Modelos de diagnóstico assistido por IA",
+      "Analytics populacionais de saúde"
     ],
-    metrics: "Qualidade de dados 99.5%"
+    metrics: "Qualidade de dados 99.5% para IA médica"
   },
   {
     icon: Shield,
@@ -86,18 +90,32 @@ export const useCases: UseCase[] = [
 export const useCasesContent = {
   title: "Casos de",
   titleHighlight: "Uso",
-  description: "Soluções específicas para cada segmento da cadeia de saúde digital, desde hospitais tradicionais até startups de IA médica.",
+  description: "Soluções específicas para cada segmento da cadeia de saúde digital: desde hospitais tradicionais com sistemas HIS legados até startups de IA médica que precisam acessar dados FHIR estruturados. Nossa plataforma interoperabilidade hospitais conecta todo o ecossistema de saúde.",
+  industrySegments: {
+    title: "Segmentos Atendidos",
+    description: "Especialistas em conectar diferentes tipos de organizações de saúde",
+    segments: [
+      "Hospitais com sistemas HIS/RIS legados",
+      "Clínicas médicas e ambulatoriais",
+      "Laboratórios de análises clínicas",
+      "Healthtechs e startups de saúde digital", 
+      "Operadoras de planos de saúde",
+      "Empresas de telemedicina",
+      "Plataformas de IA médica e machine learning"
+    ]
+  },
   successStories: {
     title: "Casos de",
     titleHighlight: "Sucesso",
+    description: "Resultados comprovados em interoperabilidade hospitalar e integração de sistemas de saúde",
     stats: [
-      { value: "200+", label: "Organizações conectadas" },
-      { value: "50M+", label: "Registros processados/mês" },
-      { value: "99.9%", label: "Disponibilidade média" }
+      { value: "200+", label: "Organizações de saúde conectadas" },
+      { value: "50M+", label: "Registros FHIR processados/mês" },
+      { value: "99.9%", label: "Disponibilidade SLA sistemas críticos" }
     ],
     buttons: {
       primary: "Ver Estudos de Caso",
-      secondary: "Calcular ROI"
+      secondary: "Calcular ROI Interoperabilidade"
     }
   }
 };

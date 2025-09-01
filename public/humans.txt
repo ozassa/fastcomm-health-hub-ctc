@@ -4,11 +4,13 @@ Contact: faleconosco@ctctech.com.br
 Location: São Paulo, Brazil
 
 /* SITE */
-Last update: 2025/07/15
+Last update: 2025/09/01
 Language: Portuguese (Brazil)
 Doctype: HTML5
 IDE: VS Code
 Standards: HTML5, CSS3, JavaScript ES6+, React, TypeScript
+SEO: Schema.org structured data, Open Graph, Twitter Cards
+Accessibility: WCAG 2.1 AA compliant
 
 /* COMPONENTS */
 Framework: React 18.3.1

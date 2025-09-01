@@ -41,7 +41,7 @@ export const healthTechBenefits: HealthTechBenefit[] = [
 export const healthTechContent = {
   title: "Ecossistema de",
   titleHighlight: "Health Techs",
-  description: "Conecte-se ao ecossistema Fastcomm para se unir a centenas de instituições que escolheram nossa plataforma como barramento de integração e interoperabilidade.",
+  description: "Conecte sua healthtech ao ecossistema Fastcomm para acessar dados FHIR padronizados de centenas de instituições hospitalares. Nossa plataforma interoperabilidade hospitais elimina a complexidade de integrar com sistemas HIS, RIS, LIMS heterogêneos, acelerando time-to-market para aplicações de telemedicina e saúde digital.",
   challenges: {
     title: "Desafios das Health Techs",
     description: "Barreiras que impedem startups de crescer no mercado de saúde"

@@ -42,15 +42,27 @@ export const painPoints: PainPoint[] = [
 export const painPointsContent = {
   title: "O",
   titleHighlight: "Problema",
-  subtitle: "é Real",
-  description: "A fragmentação de dados na saúde cria barreiras que impactam diretamente o atendimento aos pacientes e a eficiência operacional das instituições.",
+  subtitle: "da Fragmentação de Dados Hospitalares é Real",
+  description: "A fragmentação de dados na saúde brasileira cria barreiras críticas que impactam diretamente o atendimento aos pacientes e a eficiência operacional das instituições. Sistemas hospitalares HIS isolados, dados LIMS não integrados e prontuários eletrônicos fragmentados impedem a interoperabilidade necessária para cuidado coordenado.",
+  technicalChallenges: {
+    title: "Desafios Técnicos da Interoperabilidade",
+    challenges: [
+      "Sistemas HIS legados sem APIs modernas",
+      "Padrões HL7 v2 incompatíveis entre fornecedores",
+      "Ausência de conectores FHIR nativos",
+      "Dados LIMS não padronizados para integração",
+      "Mapping complexo entre diferentes schemas de dados",
+      "Falta de expertise técnica em padrões de interoperabilidade"
+    ]
+  },
   solution: {
     title: "Fastcomm",
     titleHighlight: "é a Solução",
-    description: "Transforme dados desconectados em um ecossistema integrado que acelera decisões médicas e melhora resultados de saúde.",
+    subtitle: "para Interoperabilidade Hospitalar",
+    description: "Transforme dados hospitalares desconectados em ecossistema integrado FHIR que acelera decisões médicas e melhora resultados de saúde. Nossa engine de transformação elimina silos de dados entre HIS, RIS, LIMS e aplicações de telemedicina.",
     buttons: {
       primary: "Ver Como Funciona",
-      secondary: "Casos de Sucesso"
+      secondary: "Casos de Sucesso Hospitalares"
     }
   }
 };
