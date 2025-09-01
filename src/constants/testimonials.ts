@@ -15,27 +15,27 @@ export interface Stat {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "O Fastcomm revolucionou nossa interoperabilidade hospitalar: reduzimos tempo de integração HIS com sistemas externos de 6 meses para 2 semanas. A interface low-code permitiu que nossa equipe configurasse integrações FHIR complexas com telemedicina sem dependência de fornecedores externos. Engine de transformação HL7 para FHIR funcionou perfeitamente com nosso sistema Tasy.",
-    author: "Dr. Ricardo Silva",
-    position: "CTO - Hospital Sírio-Libanês",
-    company: "Hospital Sírio-Libanês",
-    avatar: "RS",
+    quote: "A plataforma Fastcomm nos permitiu acelerar significativamente nossos processos de integração de sistemas. A redução no tempo de desenvolvimento foi notável e nossa equipe conseguiu implementar as soluções com muito mais agilidade.",
+    author: "Equipe Técnica",
+    position: "Liderança de TI",
+    company: "Hospital Partner",
+    avatar: "HP",
     rating: 5
   },
   {
-    quote: "Implementamos integrações FHIR R4 com 15 hospitais diferentes (incluindo Tasy, MV Soul e Philips TASY) em apenas 3 meses. A padronização automática FHIR e os conectores HIS/RIS prontos foram essenciais para escalar nossa healthtech de telemedicina rapidamente. Conectores plug-and-play eliminaram meses de desenvolvimento de APIs específicas.",
-    author: "Ana Beatriz Costa",
-    position: "Head of Engineering - Telemedicina Mais",
-    company: "Telemedicina Mais",
-    avatar: "AC",
+    quote: "O suporte técnico especializado e a facilidade de implementação da plataforma FHIR superaram nossas expectativas. Conseguimos conectar diferentes sistemas de forma muito mais eficiente.",
+    author: "Equipe de Desenvolvimento",
+    position: "Arquitetura de Sistemas",
+    company: "Healthtech Partner",
+    avatar: "HT",
     rating: 5
   },
   {
-    quote: "A compliance LGPD nativa e os logs de auditoria detalhados de todas as transformações FHIR/HL7 foram fundamentais para nossa certificação ISO 27001. Trilha de auditoria completa de dados hospitalares e suporte técnico especializado em interoperabilidade são excepcionais. Engine de validação TISS 4.0 simplificou integração com rede credenciada.",
-    author: "Carlos Mendoza",
-    position: "CISO - Grupo Hapvida",
-    company: "Grupo Hapvida",
-    avatar: "CM",
+    quote: "A compliance e os recursos de auditoria da plataforma foram essenciais para atender nossos requisitos de segurança. A solução trouxe mais confiabilidade aos nossos processos de integração.",
+    author: "Equipe de Compliance",
+    position: "Segurança da Informação",
+    company: "Organização de Saúde",
+    avatar: "OS",
     rating: 5
   }
 ];

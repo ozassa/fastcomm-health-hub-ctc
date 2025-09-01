@@ -309,7 +309,7 @@ Para organizações que buscam **conectar sistema hospitalar FHIR** mantendo inv
 
 O mercado brasileiro de saúde digital vive uma transformação acelerada na adoção de **interoperabilidade hospitalar**. Este relatório analisa casos reais de **integração sistema hospitalar FHIR** em organizações líderes.
 
-## Caso 1: Hospital Sírio-Libanês - São Paulo
+## Caso 1: Hospital de Grande Porte - São Paulo
 
 ### Contexto e Desafios
 - **Sistemas integrados**: HIS Tasy + 18 aplicações especializadas
@@ -346,7 +346,7 @@ HIS Tasy (HL7 v2) → FastComm Engine → FHIR R4 APIs
 - **Satisfação**: NPS médico subiu de 6.2 para 8.7
 - **Compliance**: 100% aderência LGPD desde implementação
 
-## Caso 2: Rede D'Or - Nacional
+## Caso 2: Rede Hospitalar Nacional
 
 ### Contexto e Desafios
 - **Escala**: 50+ hospitais, 15 estados brasileiros  
@@ -388,7 +388,7 @@ HIS Tasy (SP)  HIS MV Soul (RJ)  HIS Philips (MG)
 3. **IA Preditiva**: Modelos de ocupação de leitos
 4. **Auditoria**: Compliance centralizado ANVISA/ANS
 
-## Caso 3: Laboratório Fleury - Diagnóstico Digital
+## Caso 3: Laboratório de Medicina Diagnóstica
 
 ### Contexto e Desafios
 - **Especialidade**: Medicina diagnóstica de alta complexidade
