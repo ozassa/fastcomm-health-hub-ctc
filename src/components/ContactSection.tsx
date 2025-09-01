@@ -221,7 +221,7 @@ import { useState, useEffect } from "react";
   md:text-4xl font-bold mb-4">
                 {contactContent.title} <span className="t
   ext-primary">{contactContent.titleHighlight}</span>
-  {contactContent.subtitle}
+ {contactContent.subtitle}
               </h2>
               <p className="text-lg md:text-xl 
   text-muted-foreground max-w-3xl mx-auto">
