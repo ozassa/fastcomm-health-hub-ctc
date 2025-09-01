@@ -9,58 +9,71 @@ export interface AIBenefit {
 export const aiBenefits: AIBenefit[] = [
   {
     icon: Database,
-    title: "Dados Padronizados",
-    description: "Algoritmos de IA funcionam melhor com dados estruturados e consistentes"
+    title: "Dados FHIR Estruturados para IA Médica",
+    description: "Algoritmos de inteligência artificial médica alcançam maior acurácia com dados FHIR estruturados e consistentes. Datasets padronizados eliminam bias de dados e melhoram performance de modelos de machine learning clínico."
   },
   {
     icon: TrendingUp,
-    title: "Maior Acurácia",
-    description: "Dados não padronizados levam a erros de análise e resultados incorretos"
+    title: "Acurácia Superior em Diagnóstico Assistido por IA",
+    description: "Dados hospitalares não padronizados levam a erros críticos em análise preditiva e resultados incorretos em diagnóstico assistido por IA. Padronização FHIR elimina inconsistências que comprometem modelos de machine learning médico."
   },
   {
     icon: Shield,
-    title: "Qualidade Garantida",
-    description: "Validação automática FHIR garante integridade dos dados para IA"
+    title: "Qualidade de Dados Garantida para Machine Learning",
+    description: "Validação automática FHIR R4 garante integridade e conformidade dos dados clínicos para algoritmos de IA médica. Schema validation elimina dados corrompidos que comprometem treinamento de modelos preditivos."
   },
   {
     icon: Zap,
-    title: "Insights Precisos",
-    description: "IA extrai insights mais relevantes de dados bem estruturados"
+    title: "Insights Médicos Precisos e Acionáveis",
+    description: "Algoritmos de IA médica extraem insights clínicos mais relevantes e acionáveis de dados FHIR bem estruturados. Analytics preditivo em saúde alcança maior precisão com datasets normalizados via interoperabilidade padronizada."
   }
 ];
 
 export const aiUseCases: string[] = [
-  "Diagnóstico assistido por IA com histórico completo do paciente",
-  "Predição de riscos com dados integrados de múltiplas fontes",
-  "Otimização de tratamentos baseada em dados populacionais",
-  "Detecção precoce de surtos através de análise de padrões",
-  "Personalização de medicamentos com base em perfil genético integrado"
+  "Diagnóstico assistido por IA com histórico médico completo do paciente via FHIR",
+  "Predição de riscos cardiovasculares com dados integrados de múltiplos sistemas HIS",
+  "Otimização de protocolos de tratamento baseada em dados populacionais FHIR",
+  "Detecção precoce de surtos epidemiológicos através de análise de padrões clínicos",
+  "Personalização de terapias medicamentosas com base em perfil genômico integrado",
+  "Machine learning para otimização de fluxos hospitalares baseado em dados operacionais",
+  "IA para análise preditiva de readmissões hospitalares via dados FHIR estruturados",
+  "Algoritmos de apoio à decisão clínica com acesso a dados laboratoriais LIMS integrados"
 ];
 
 export const aiContent = {
   title: "Turbine sua",
-  titleHighlight: "Inteligência Artificial",
-  description: "O Fastcomm entrega dados padronizados para que algoritmos de IA extraiam insights mais precisos e relevantes para decisões médicas críticas.",
+  titleHighlight: "Inteligência Artificial Médica",
+  description: "O Fastcomm entrega dados hospitalares FHIR padronizados para que algoritmos de IA médica extraiam insights mais precisos e relevantes para decisões clínicas críticas. Datasets estruturados para machine learning em saúde com qualidade garantida para aplicações de diagnóstico assistido por IA.",
   benefits: {
-    title: "Por que Dados Padronizados são Cruciais para IA?",
-    description: "A qualidade dos dados é um fator crucial para que algoritmos de inteligência artificial possam funcionar com maior acurácia. Dados não padronizados comprometem a eficácia da IA."
+    title: "Por que Dados FHIR Padronizados são Cruciais para IA Médica?",
+    description: "A qualidade e padronização dos dados clínicos é fator determinante para que algoritmos de inteligência artificial médica alcancem acurácia clínica adequada. Dados hospitalares não padronizados comprometem severely a eficácia de modelos de machine learning em saúde, resultando em diagnósticos incorretos e decisões clínicas prejudicadas.",
+    technicalRequirements: {
+      title: "Requisitos Técnicos para IA Médica",
+      requirements: [
+        "Conformidade total com padrões FHIR R4 para interoperabilidade",
+        "Validação contínua contra schemas HL7 oficiais", 
+        "Normalização de terminologias médicas (SNOMED CT, ICD-10)",
+        "Datasets balanceados para treinamento não enviesado",
+        "APIs REST otimizadas para consumo de modelos ML"
+      ]
+    }
   },
   useCases: {
-    title: "Casos de Uso de IA Potencializados",
-    description: "Com dados padronizados do Fastcomm, sua IA pode:",
+    title: "Casos de Uso de IA Médica Potencializados",
+    description: "Com dados FHIR estruturados do Fastcomm, seus algoritmos de IA médica podem:",
     cta: {
-      description: "Dados FHIR estruturados prontos para seus algoritmos",
-      button: "Ver Documentação API"
+      description: "Dados FHIR estruturados prontos para algoritmos de machine learning médico",
+      button: "Ver Documentação API FHIR"
     }
   },
   architecture: {
     title: "Arquitetura",
     titleHighlight: "Cloud-First",
-    subtitle: "para IA",
-    description: "Infraestrutura baseada em microserviços com Oracle Cloud e AWS, garantindo escalabilidade e disponibilidade para aplicações de IA mais exigentes.",
+    subtitle: "para IA Médica",
+    description: "Infraestrutura baseada em microserviços com Oracle Cloud e AWS, garantindo escalabilidade, disponibilidade e compliance LGPD para aplicações de IA médica mais exigentes. Pipeline de dados otimizado para machine learning em saúde com processamento em tempo real de dados FHIR.",
     buttons: {
-      primary: "Ver Arquitetura",
-      secondary: "Testar API"
+      primary: "Ver Arquitetura para IA",
+      secondary: "Testar API FHIR"
     }
   }
 };

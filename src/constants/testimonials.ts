@@ -15,27 +15,27 @@ export interface Stat {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "O Fastcomm reduziu nosso tempo de integração com sistemas externos de 6 meses para 2 semanas. A interface low-code permitiu que nossa equipe de TI configurasse integrações complexas sem dependência de fornecedores externos.",
-    author: "Dr. Ricardo Silva",
-    position: "CTO - Hospital Sírio-Libanês",
-    company: "Hospital Sírio-Libanês",
-    avatar: "RS",
+    quote: "A principal necessidade era acabar com diversas bases de dados com informações desconectadas. Trabalhar para que todos os dados fossem mais íntegros e conseguisse ter maior especialização na utilização.",
+    author: "Vitor Ferreira",
+    position: "Gerente de TI de Negócios de Venda",
+    company: "Hospital Moinhos de Vento",
+    avatar: "VF",
     rating: 5
   },
   {
-    quote: "Implementamos integrações FHIR com 15 hospitais diferentes em apenas 3 meses. A padronização automática e os conectores prontos foram essenciais para escalar nossa plataforma de telemedicina rapidamente.",
-    author: "Ana Beatriz Costa",
-    position: "Head of Engineering - Telemedicina Mais",
-    company: "Telemedicina Mais",
-    avatar: "AC",
+    quote: "O Fastcomm nos permitiu unificar mais de 50 sistemas internos com interoperabilidade eficiente. O resultado foi um atendimento médico mais ágil, com diagnósticos otimizados e redução de exames redundantes.",
+    author: "Equipe Técnica",
+    position: "Liderança de TI",
+    company: "Hospital Moinhos de Vento",
+    avatar: "MV",
     rating: 5
   },
   {
-    quote: "A compliance LGPD nativa e os logs de auditoria detalhados foram fundamentais para nossa certificação ISO 27001. O suporte técnico é excepcional e sempre disponível quando precisamos.",
-    author: "Carlos Mendoza",
-    position: "CISO - Grupo Hapvida",
-    company: "Grupo Hapvida",
-    avatar: "CM",
+    quote: "A plataforma Fastcomm revolucionou nossa capacidade de integração com sistemas hospitalares. Como healthtech, conseguimos conectar rapidamente com diferentes HIS e acelerar nossa expansão no mercado de oncologia digital.",
+    author: "Equipe de Desenvolvimento",
+    position: "CTO",
+    company: "WeCancer",
+    avatar: "WC",
     rating: 5
   }
 ];
@@ -49,15 +49,24 @@ export const testimonialStats: Stat[] = [
 export const testimonialsContent = {
   title: "O que dizem nossos",
   titleHighlight: "Clientes",
-  description: "Depoimentos de CTOs, CIOs e líderes técnicos que transformaram suas integrações com o Fastcomm.",
+  description: "Depoimentos de CTOs, CIOs e líderes técnicos de hospitais, healthtechs e operadoras que transformaram sua interoperabilidade hospitalar com o Fastcomm. Resultados comprovados em integração de sistemas HIS, RIS, LIMS e aplicações de telemedicina.",
+  clientProfiles: {
+    title: "Perfil dos Nossos Clientes",
+    profiles: [
+      "CTOs de hospitais de referência com sistemas HIS complexos",
+      "Líderes técnicos de healthtechs que precisam conectar com hospitais",
+      "CISOs de operadoras focados em compliance e auditoria TISS",
+      "Arquitetos de software especializados em interoperabilidade FHIR"
+    ]
+  },
   cta: {
     title: "Junte-se aos",
     titleHighlight: "Líderes",
-    subtitle: "de Mercado",
-    description: "Mais de 200 organizações já confiam no Fastcomm para suas integrações críticas. Seja o próximo a transformar sua arquitetura de dados.",
+    subtitle: "em Interoperabilidade Hospitalar",
+    description: "Mais de 200 organizações de saúde já confiam no Fastcomm para suas integrações críticas HIS/RIS/LIMS. Seja o próximo a transformar sua arquitetura de dados hospitalares com padrões FHIR R4 e HL7.",
     buttons: {
       primary: "Solicitar Demonstração",
-      secondary: "Falar com Especialista"
+      secondary: "Falar com Especialista FHIR"
     }
   }
 };

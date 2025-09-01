@@ -57,15 +57,28 @@ export const aboutContent = {
   header: {
     title: "Sobre a",
     titleHighlight: "CTC",
-    description: "Desenvolvedora do Fastcomm, a CTC é líder brasileira em soluções de TI para saúde, governo, indústria e setor financeiro, atendendo missões críticas com alta performance."
+    description: "Desenvolvedora do Fastcomm, a CTC é líder brasileira em soluções de interoperabilidade para saúde digital, especializada em padrões FHIR R4, HL7 v2/v3 e TISS 4.0. Atendemos missões críticas de integração hospitalar com alta performance e compliance regulatório."
+  },
+  expertise: {
+    title: "Expertise em",
+    titleHighlight: "Interoperabilidade",
+    specializations: [
+      "Implementação e certificação FHIR R4 em sistemas hospitalares brasileiros",
+      "Transformação bidirecional HL7 v2/v3 para integração de sistemas legados", 
+      "Compliance TISS 4.0 para operadoras de planos de saúde",
+      "Conectores nativos para principais HIS brasileiros (Tasy, MV Soul, Philips)",
+      "APIs REST para integração de healthtechs com hospitais",
+      "Arquitetura de microserviços para aplicações críticas de saúde"
+    ]
   },
   story: {
     title: "Nossa",
     titleHighlight: "História",
+    subtitle: "em Interoperabilidade Hospitalar",
     paragraphs: [
-      "Fundada por especialistas em sistemas críticos, a CTC desenvolveu expertise única em padrões como FHIR, HL7 e TISS ao longo de mais de 15 anos no mercado de saúde.",
-      "Atendemos desde grandes hospitais como HCOR, Oswaldo Cruz e Hospital Moinhos de Vento até startups inovadoras, sempre focados em soluções que geram impacto real.",
-      "O Fastcomm representa a evolução de todo nosso conhecimento, democratizando através de uma plataforma low-code o que antes exigia meses de desenvolvimento especializado."
+      "Fundada por especialistas em sistemas críticos hospitalares, a CTC desenvolveu expertise única em padrões de interoperabilidade como FHIR R4, HL7 v2/v3 e TISS ao longo de mais de 15 anos integrando sistemas de saúde complexos no Brasil.",
+      "Atendemos desde grandes hospitais de referência como HCOR, Oswaldo Cruz e Hospital Moinhos de Vento até healthtechs inovadoras, sempre focados em soluções de interoperabilidade que geram impacto real na qualidade do atendimento.",
+      "O Fastcomm representa a evolução de todo nosso conhecimento em integração hospitalar, democratizando através de uma plataforma low-code especializada em saúde o que antes exigia meses de desenvolvimento especializado em padrões FHIR e HL7."
     ]
   },
   values: {
@@ -76,20 +89,31 @@ export const aboutContent = {
   team: {
     title: "Conheça Nossa",
     titleHighlight: "Equipe",
-    description: "Especialistas certificados em FHIR, HL7 e arquiteturas de alta disponibilidade, prontos para apoiar sua jornada de transformação digital.",
+    subtitle: "de Especialistas em Interoperabilidade",
+    description: "Time de especialistas certificados em FHIR R4, HL7 v2/v3, TISS 4.0 e arquiteturas de alta disponibilidade para sistemas críticos hospitalares. Expertise comprovada em conectar sistemas HIS, RIS, LIMS com aplicações modernas de telemedicina e healthtechs.",
+    technicalExpertise: {
+      title: "Expertise Técnica da Equipe",
+      areas: [
+        "Certificações oficiais HL7 FHIR e participação ativa na comunidade brasileira",
+        "Especialistas em sistemas HIS brasileiros (Tasy, MV Soul, Philips TASY)",
+        "Arquitetos de soluções com experiência em PACS/RIS radiológicos",
+        "Desenvolvedores especializados em APIs REST para integração hospitalar",
+        "Consultores em compliance LGPD e auditoria TISS para operadoras"
+      ]
+    },
     stats: {
       education: {
         title: "PhDs e Mestres",
-        description: "em Engenharia de Software e Informática Médica"
+        description: "em Engenharia de Software, Informática Médica e Interoperabilidade"
       },
       certifications: {
-        title: "Certificações",
-        description: "FHIR, HL7, AWS, Azure e Google Cloud"
+        title: "Certificações Técnicas",
+        description: "FHIR R4, HL7 v2/v3, TISS 4.0, AWS, Azure, Oracle Cloud"
       }
     },
     buttons: {
-      primary: "Conheça o Time",
-      secondary: "Trabalhe Conosco"
+      primary: "Conheça o Time Técnico",
+      secondary: "Trabalhe com Interoperabilidade"
     }
   }
 };
